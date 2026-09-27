@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Naveka · QR per i tavoli</title>
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito+Sans:wght@400;800&display=swap" rel="stylesheet">
+<title>Pizzeria Naveka · QR per i tavoli</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;800&display=swap" rel="stylesheet">
 <style>
   :root { --teal: #4f9e97; --olive: #9da536; --purple: #4b2a7b; --pink: #c9546f; --lime: #8fb832; --chili: #8e1f1f; }
   * { box-sizing: border-box; }
@@ -30,15 +30,8 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     padding: 10mm 8mm; text-align: center;
   }
-  .word { display: flex; border-radius: 3px; overflow: hidden; }
-  .word b {
-    font-family: "Kaushan Script", cursive; font-weight: 400; color: #fff;
-    font-size: 30px; line-height: 48px; padding: 0 5px;
-  }
-  .word b:nth-child(1) { background: var(--teal); padding-left: 12px; }
-  .word b:nth-child(2) { background: var(--olive); }
-  .word b:nth-child(3) { background: var(--purple); padding-right: 12px; }
-  .stripe { display: flex; width: 60mm; height: 3px; margin: 7mm 0 5mm; }
+  .logo { width: 62mm; height: auto; }
+  .stripe { display: flex; width: 60mm; height: 3px; margin: 5mm 0 5mm; }
   .stripe i { flex: 1; }
   .stripe i:nth-child(1) { background: var(--teal); }
   .stripe i:nth-child(2) { background: var(--olive); }
@@ -73,7 +66,7 @@
 
   <template id="tpl">
     <div class="card">
-      <div class="word"><b>na</b><b>ve</b><b>ka</b></div>
+      <img class="logo" src="logo.png" alt="Pizzeria Naveka">
       <div class="stripe"><i></i><i></i><i></i><i></i><i></i><i></i></div>
       <h1>Scansiona il menù</h1>
       <p class="langs">Scan for the menu · Menü için okutun</p>

@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Naveka · Menù</title>
-<meta name="description" content="Menù digitale Naveka: pizze al metro, antipasti, primi, dolci e bevande.">
+<title>Pizzeria Naveka · Menù</title>
+<meta name="description" content="Menù digitale Pizzeria Naveka: pizze al metro, antipasti, primi, dolci e bevande.">
 <meta name="theme-color" content="#4b2a7b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234b2a7b'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3En%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --teal: #4f9e97;
@@ -59,20 +59,11 @@
     background: var(--card);
     border-bottom: 1px solid var(--line);
   }
-  .logo-wrap { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
-  .logo-word {
-    display: flex; overflow: hidden; border-radius: 4px; box-shadow: var(--shadow);
+  .logo {
+    display: block; margin: 0 auto;
+    width: 230px; max-width: 70%; height: auto;
+    border-radius: 10px;
   }
-  .logo-word b {
-    font-family: "Kaushan Script", cursive; font-weight: 400;
-    color: #fff; font-size: 34px; line-height: 56px; padding: 0 6px;
-  }
-  .logo-word b:nth-child(1) { background: var(--teal); padding-left: 14px; }
-  .logo-word b:nth-child(2) { background: var(--olive); }
-  .logo-word b:nth-child(3) { background: var(--purple); padding-right: 14px; }
-  .logo-word.m b:nth-child(1) { background: var(--chili); }
-  .logo-word.m b:nth-child(2) { background: var(--pink); }
-  .logo-word.m b:nth-child(3) { background: var(--lime); color: #3a1440; }
   .tagline { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
 
   /* ---------- sticky toolbar ---------- */
@@ -203,7 +194,6 @@
   }
 
   @media (max-width: 380px) {
-    .logo-word b { font-size: 28px; line-height: 48px; }
     .prices .price { width: 54px; }
     .sizes-head span { width: 54px; }
     .langs button { padding: 0 6px; }
@@ -213,10 +203,7 @@
 <body>
 
 <header class="hero">
-  <div class="logo-wrap" aria-label="Naveka menù">
-    <div class="logo-word" aria-hidden="true"><b>na</b><b>ve</b><b>ka</b></div>
-    <div class="logo-word m" aria-hidden="true"><b>🌶</b><b>me</b><b>nù</b></div>
-  </div>
+  <img class="logo" src="logo.png" alt="Pizzeria Naveka" width="319" height="171">
   <p class="tagline" data-i18n="tagline"></p>
 </header>
 
@@ -247,7 +234,7 @@
   </div>
 </main>
 
-<footer>Naveka · <span data-i18n="footer"></span></footer>
+<footer>Pizzeria Naveka · <span data-i18n="footer"></span></footer>
 
 <script src="menu-data.js"></script>
 <script>
