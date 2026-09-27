@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Naveka · Menù</title>
+<meta name="description" content="Menù digitale Naveka: pizze al metro, antipasti, primi, dolci e bevande.">
+<meta name="theme-color" content="#4b2a7b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%234b2a7b'/%3E%3Ctext x='50' y='70' font-size='62' text-anchor='middle' fill='white' font-family='Georgia'%3En%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Nunito+Sans:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal: #4f9e97;
+    --olive: #9da536;
+    --purple: #4b2a7b;
+    --pink: #c9546f;
+    --lime: #8fb832;
+    --chili: #8e1f1f;
+
+    --bg: #f6f3ee;
+    --card: #ffffff;
+    --ink: #221b2b;
+    --muted: #6e6677;
+    --line: #e7e1d8;
+    --accent: var(--purple);
+    --chip: #ece6f3;
+    --shadow: 0 1px 2px rgba(40, 20, 60, .06), 0 4px 14px rgba(40, 20, 60, .06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17131c;
+      --card: #211b28;
+      --ink: #f1ecf6;
+      --muted: #a79fb2;
+      --line: #342b3d;
+      --accent: #b99ae6;
+      --chip: #2e2539;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 118px; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  /* ---------- header ---------- */
+  .hero {
+    padding: 22px 16px 18px;
+    text-align: center;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+  }
+  .logo-wrap { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .logo-word {
+    display: flex; overflow: hidden; border-radius: 4px; box-shadow: var(--shadow);
+  }
+  .logo-word b {
+    font-family: "Kaushan Script", cursive; font-weight: 400;
+    color: #fff; font-size: 34px; line-height: 56px; padding: 0 6px;
+  }
+  .logo-word b:nth-child(1) { background: var(--teal); padding-left: 14px; }
+  .logo-word b:nth-child(2) { background: var(--olive); }
+  .logo-word b:nth-child(3) { background: var(--purple); padding-right: 14px; }
+  .logo-word.m b:nth-child(1) { background: var(--chili); }
+  .logo-word.m b:nth-child(2) { background: var(--pink); }
+  .logo-word.m b:nth-child(3) { background: var(--lime); color: #3a1440; }
+  .tagline { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+
+  /* ---------- sticky toolbar ---------- */
+  .bar {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-top {
+    display: flex; gap: 8px; align-items: center;
+    padding: 10px 16px 6px;
+    max-width: 760px; margin: 0 auto;
+  }
+  .search {
+    flex: 1; min-width: 0;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 0 14px; height: 40px;
+  }
+  .search svg { flex: none; opacity: .5; }
+  .search input {
+    border: 0; outline: 0; background: transparent; color: var(--ink);
+    font: inherit; width: 100%; min-width: 0;
+  }
+  .langs {
+    display: flex; background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; padding: 3px; flex: none;
+  }
+  .langs button {
+    border: 0; background: transparent; color: var(--muted);
+    font: 800 12px/1 inherit; font-family: inherit;
+    padding: 0 8px; height: 32px; border-radius: 999px; cursor: pointer;
+  }
+  .langs button[aria-pressed="true"] { background: var(--accent); color: var(--card); }
+
+  .tabs {
+    display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    padding: 6px 16px 10px; max-width: 760px; margin: 0 auto;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs a {
+    flex: none; text-decoration: none; white-space: nowrap;
+    font-size: 14px; font-weight: 600; color: var(--ink);
+    background: var(--chip); padding: 7px 14px; border-radius: 999px;
+    transition: background .2s, color .2s;
+  }
+  .tabs a.active { background: var(--accent); color: var(--card); }
+
+  /* ---------- content ---------- */
+  main { max-width: 760px; margin: 0 auto; padding: 8px 16px 40px; }
+  section { margin-top: 26px; }
+  h2 {
+    display: flex; align-items: center; gap: 10px;
+    margin: 0 0 4px; font-size: 22px; font-weight: 800; letter-spacing: .01em;
+    color: var(--accent);
+  }
+  h2::before {
+    content: ""; width: 6px; height: 22px; border-radius: 3px;
+    background: linear-gradient(var(--teal), var(--olive), var(--purple));
+  }
+  .sec-note { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
+  .sizes-head {
+    display: flex; justify-content: flex-end; gap: 0;
+    font-size: 12px; font-weight: 800; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .06em;
+    padding: 0 14px 6px;
+  }
+  .sizes-head span { width: 64px; text-align: right; }
+
+  .list {
+    background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .item {
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 12px 14px; border-top: 1px solid var(--line);
+  }
+  .item:first-child { border-top: 0; }
+  .item-main { flex: 1; min-width: 0; }
+  .item-name {
+    font-weight: 800; font-size: 16px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  }
+  .item-desc { color: var(--muted); font-size: 14px; font-style: italic; margin-top: 2px; }
+  .item-tr { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+  .item-info { color: var(--pink); font-size: 12.5px; margin-top: 3px; }
+  .badge {
+    font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em;
+    padding: 2px 7px; border-radius: 999px; line-height: 1.5;
+  }
+  .ico { font-size: 14px; line-height: 1; }
+  .b-star { background: var(--purple); color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    .b-star { background: var(--accent); color: var(--card); }
+  }
+
+  .price {
+    flex: none; font-weight: 800; font-variant-numeric: tabular-nums;
+    white-space: nowrap; text-align: right;
+  }
+  .prices { display: flex; flex: none; }
+  .prices .price { width: 64px; }
+  .prices .price.big { color: var(--accent); }
+
+  .footer-note {
+    margin: 10px 2px 0; font-size: 13.5px; color: var(--muted);
+  }
+  .coperto {
+    margin-top: 30px; padding: 14px; border-radius: 14px;
+    background: var(--card); box-shadow: var(--shadow);
+    display: flex; justify-content: space-between; font-weight: 800;
+  }
+  .legend {
+    margin-top: 14px; font-size: 13px; color: var(--muted);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .legend div { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  .empty {
+    display: none; text-align: center; color: var(--muted); padding: 40px 0;
+  }
+  .hidden { display: none !important; }
+
+  footer {
+    text-align: center; color: var(--muted); font-size: 12.5px;
+    padding: 10px 16px 30px;
+  }
+
+  @media (max-width: 380px) {
+    .logo-word b { font-size: 28px; line-height: 48px; }
+    .prices .price { width: 54px; }
+    .sizes-head span { width: 54px; }
+    .langs button { padding: 0 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="logo-wrap" aria-label="Naveka menù">
+    <div class="logo-word" aria-hidden="true"><b>na</b><b>ve</b><b>ka</b></div>
+    <div class="logo-word m" aria-hidden="true"><b>🌶</b><b>me</b><b>nù</b></div>
+  </div>
+  <p class="tagline" data-i18n="tagline"></p>
+</header>
+
+<div class="bar">
+  <div class="bar-top">
+    <label class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" enterkeyhint="search">
+    </label>
+    <div class="langs" role="group" aria-label="Lingua / Language">
+      <button data-lang="it">IT</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="tr">TR</button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+</div>
+
+<main id="menu"></main>
+<p class="empty" id="empty" data-i18n="empty"></p>
+
+<main id="bottom" style="padding-top:0">
+  <div class="coperto"><span data-i18n="coperto"></span><span id="coperto-price"></span></div>
+  <div class="legend">
+    <div><span>🌱 <span data-i18n="veg"></span></span><span>🌶️ <span data-i18n="hot"></span></span><span>🐟 <span data-i18n="sea"></span></span></div>
+    <div data-i18n="frozen"></div>
+    <div data-i18n="allergens"></div>
+  </div>
+</main>
+
+<footer>Naveka · <span data-i18n="footer"></span></footer>
+
+<script src="menu-data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var UI = {
+    it: {
+      tagline: "Pizza al metro · Cucina di mare",
+      search: "Cerca un piatto o un ingrediente…",
+      coperto: "Coperto",
+      veg: "Vegetariano", hot: "Piccante", sea: "Pesce", star: "Della casa",
+      frozen: "* Prodotto congelato o surgelato.",
+      allergens: "Allergie o intolleranze? Chiedi al personale l'elenco degli allergeni.",
+      empty: "Nessun piatto trovato.",
+      base: "Da non considerarsi base per altre pizze",
+      footer: "Prezzi in euro, IVA inclusa"
+    },
+    en: {
+      tagline: "Pizza by the metre · Seafood kitchen",
+      search: "Search a dish or ingredient…",
+      coperto: "Cover charge",
+      veg: "Vegetarian", hot: "Spicy", sea: "Fish", star: "House special",
+      frozen: "* Frozen product.",
+      allergens: "Allergies or intolerances? Ask our staff for the allergen list.",
+      empty: "No dishes found.",
+      base: "Cannot be used as a base for other pizzas",
+      footer: "Prices in euro, VAT included"
+    },
+    de: {
+      tagline: "Pizza am Meter · Fischküche",
+      search: "Gericht oder Zutat suchen…",
+      coperto: "Gedeck",
+      veg: "Vegetarisch", hot: "Scharf", sea: "Fisch", star: "Hausspezialität",
+      frozen: "* Tiefkühlprodukt.",
+      allergens: "Allergien oder Unverträglichkeiten? Fragen Sie unser Personal nach der Allergenliste.",
+      empty: "Kein Gericht gefunden.",
+      base: "Nicht als Basis für andere Pizzen",
+      footer: "Preise in Euro, inkl. MwSt."
+    },
+    tr: {
+      tagline: "Metre pizza · Deniz mutfağı",
+      search: "Yemek veya malzeme ara…",
+      coperto: "Masa ücreti (coperto)",
+      veg: "Vejetaryen", hot: "Acılı", sea: "Deniz ürünü", star: "Evin spesiyali",
+      frozen: "* Dondurulmuş ürün.",
+      allergens: "Alerjiniz veya intoleransınız mı var? Alerjen listesi için personele danışın.",
+      empty: "Yemek bulunamadı.",
+      base: "Diğer pizzalara taban olarak kullanılamaz",
+      footer: "Fiyatlar euro, KDV dahil"
+    }
+  };
+
+  // Italian ingredient -> translations (used for the pizza toppings)
+  var ING = {
+    "pomodoro": ["tomato", "Tomate", "domates"],
+    "mozzarella": ["mozzarella", "Mozzarella", "mozzarella"],
+    "basilico": ["basil", "Basilikum", "fesleğen"],
+    "cipolle": ["onions", "Zwiebeln", "soğan"],
+    "funghi": ["mushrooms", "Pilze", "mantar"],
+    "würstel": ["frankfurter", "Würstchen", "sosis"],
+    "carciofi": ["artichokes", "Artischocken", "enginar"],
+    "gorgonzola": ["gorgonzola", "Gorgonzola", "gorgonzola peyniri"],
+    "acciughe": ["anchovies", "Sardellen", "hamsi"],
+    "origano": ["oregano", "Oregano", "kekik"],
+    "aglio": ["garlic", "Knoblauch", "sarımsak"],
+    "prosciutto cotto": ["cooked ham", "Kochschinken", "pişmiş jambon"],
+    "prosciutto crudo": ["cured ham", "Rohschinken", "çiğ jambon (prosciutto)"],
+    "peperoni": ["bell peppers", "Paprika", "biber"],
+    "zucchine": ["courgettes", "Zucchini", "kabak"],
+    "zucchine grigliate": ["grilled courgettes", "gegrillte Zucchini", "ızgara kabak"],
+    "melanzane": ["aubergines", "Auberginen", "patlıcan"],
+    "peperoncino": ["chili", "Peperoncino", "acı biber"],
+    "olive": ["olives", "Oliven", "zeytin"],
+    "patatine": ["fries", "Pommes", "patates kızartması"],
+    "patatine fritte*": ["fries*", "Pommes*", "patates kızartması*"],
+    "panna": ["cream", "Sahne", "krema"],
+    "speck": ["speck (smoked ham)", "Speck", "speck (füme jambon)"],
+    "brie": ["brie", "Brie", "brie peyniri"],
+    "pancetta": ["bacon", "Bauchspeck", "pancetta (domuz pastırması)"],
+    "tonno": ["tuna", "Thunfisch", "ton balığı"],
+    "salame piccante": ["spicy salami", "scharfe Salami", "acılı salam"],
+    "porcini": ["porcini mushrooms", "Steinpilze", "porçini mantarı"],
+    "pomodorini": ["cherry tomatoes", "Kirschtomaten", "çeri domates"],
+    "pomodorini a fette": ["sliced cherry tomatoes", "Kirschtomatenscheiben", "dilim çeri domates"],
+    "gamberetti": ["shrimps", "Garnelen", "karides"],
+    "rucola": ["rocket", "Rucola", "roka"],
+    "grana": ["grana (parmesan)", "Grana", "grana peyniri"],
+    "grana grattugiato": ["grated grana", "geriebener Grana", "rendelenmiş grana"],
+    "bresaola": ["bresaola (air-dried beef)", "Bresaola (Rinderschinken)", "bresaola (kurutulmuş sığır eti)"],
+    "mozzarella di bufala": ["buffalo mozzarella", "Büffelmozzarella", "manda mozzarellası"],
+    "lattuga": ["lettuce", "Kopfsalat", "marul"],
+    "calamari": ["squid", "Tintenfisch", "kalamar"],
+    "calamari fritti": ["fried squid", "frittierte Calamari", "kalamar tava"],
+    "polpo": ["octopus", "Oktopus", "ahtapot"],
+    "seppie": ["cuttlefish", "Sepia", "mürekkep balığı"],
+    "prezzemolo": ["parsley", "Petersilie", "maydanoz"],
+    "frutti di mare": ["seafood", "Meeresfrüchte", "deniz ürünleri"],
+    "bianca / rossa": ["white / red (with tomato)", "weiß / rot (mit Tomate)", "beyaz / kırmızı (domatesli)"]
+  };
+  var LIDX = { en: 0, de: 1, tr: 2 };
+  var ICON = { veg: "🌱", hot: "🌶️", sea: "🐟" };
+
+  var data = window.MENU;
+  var menuEl = document.getElementById("menu");
+  var tabsEl = document.getElementById("tabs");
+  var qEl = document.getElementById("q");
+  var lang = pickLang();
+
+  function pickLang() {
+    var saved = null;
+    try { saved = localStorage.getItem("naveka-lang"); } catch (e) {}
+    var q = new URLSearchParams(location.search).get("lang");
+    var nav = (navigator.language || "it").slice(0, 2).toLowerCase();
+    var l = q || saved || nav;
+    return UI[l] ? l : "it";
+  }
+
+  function euro(n) {
+    return n.toFixed(2).replace(".", ",");
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function translateDesc(desc) {
+    if (lang === "it" || !desc) return "";
+    var i = LIDX[lang];
+    if (ING[desc]) return ING[desc][i];
+    var parts = desc.split(/\s*,\s*/);
+    var out = [];
+    for (var k = 0; k < parts.length; k++) {
+      var t = ING[parts[k]];
+      if (!t) return ""; // not a pure ingredient list
+      out.push(t[i]);
+    }
+    return out.join(", ");
+  }
+
+  function badges(item) {
+    var t = UI[lang], h = "";
+    if (item.star) h += '<span class="badge b-star">' + t.star + "</span>";
+    (item.tags || []).forEach(function (tag) {
+      h += '<span class="ico" title="' + t[tag] + '" aria-label="' + t[tag] + '">' + ICON[tag] + "</span>";
+    });
+    return h;
+  }
+
+  function render() {
+    var t = UI[lang];
+    var html = "", tabs = "";
+
+    data.sections.forEach(function (sec) {
+      var title = sec.title[lang] || sec.title.it;
+      tabs += '<a href="#' + sec.id + '" data-sec="' + sec.id + '">' + esc(title) + "</a>";
+
+      html += '<section id="' + sec.id + '" data-sec="' + sec.id + '">';
+      html += "<h2>" + esc(title) + "</h2>";
+      if (sec.note) html += '<p class="sec-note">' + esc(sec.note[lang]) + "</p>";
+      if (sec.sizes) {
+        html += '<div class="sizes-head">' + sec.sizes.map(function (s) { return "<span>" + s + "</span>"; }).join("") + "</div>";
+      }
+      html += '<div class="list">';
+
+      sec.items.forEach(function (it) {
+        var sub = "";
+        if (lang !== "it") {
+          if (it.tr && it.tr[lang]) sub = it.tr[lang];
+          else sub = translateDesc(it.desc);
+        }
+        var search = [it.name, it.desc, it.tr && it.tr.en, it.tr && it.tr.de, it.tr && it.tr.tr, translateDesc(it.desc)]
+          .join(" ").toLowerCase();
+
+        html += '<div class="item" data-search="' + esc(search) + '">';
+        html += '<div class="item-main">';
+        html += '<div class="item-name">' + esc(it.name) + badges(it) + "</div>";
+        if (it.desc) html += '<div class="item-desc">' + esc(it.desc) + "</div>";
+        if (sub) html += '<div class="item-tr">' + esc(sub) + "</div>";
+        if (it.info === "base") html += '<div class="item-info">' + esc(t.base) + "</div>";
+        html += "</div>";
+
+        if (it.prices) {
+          html += '<div class="prices"><span class="price">' + euro(it.prices[0]) +
+                  '</span><span class="price big">' + euro(it.prices[1]) + "</span></div>";
+        } else {
+          html += '<div class="price">' + euro(it.price) + "</div>";
+        }
+        html += "</div>";
+      });
+
+      html += "</div>";
+      if (sec.footer) html += '<p class="footer-note">' + esc(sec.footer[lang]) + "</p>";
+      html += "</section>";
+    });
+
+    menuEl.innerHTML = html;
+    tabsEl.innerHTML = tabs;
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      el.textContent = t[el.getAttribute("data-i18n")];
+    });
+    qEl.placeholder = t.search;
+    document.getElementById("coperto-price").textContent = data.currency + " " + euro(data.coperto);
+    document.documentElement.lang = lang;
+    document.querySelectorAll(".langs button").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
+
+    filter();
+    observe();
+  }
+
+  function filter() {
+    var q = qEl.value.trim().toLowerCase();
+    var any = false;
+    document.querySelectorAll("#menu section").forEach(function (sec) {
+      var shown = 0;
+      sec.querySelectorAll(".item").forEach(function (it) {
+        var ok = !q || it.getAttribute("data-search").indexOf(q) !== -1;
+        it.classList.toggle("hidden", !ok);
+        if (ok) shown++;
+      });
+      sec.classList.toggle("hidden", shown === 0);
+      var tab = tabsEl.querySelector('[data-sec="' + sec.id + '"]');
+      if (tab) tab.classList.toggle("hidden", shown === 0);
+      if (shown) any = true;
+    });
+    document.getElementById("empty").style.display = any ? "none" : "block";
+  }
+
+  // highlight the tab of the section currently on screen
+  var io;
+  function observe() {
+    if (!("IntersectionObserver" in window)) return;
+    if (io) io.disconnect();
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var id = e.target.id;
+        tabsEl.querySelectorAll("a").forEach(function (a) {
+          var on = a.getAttribute("data-sec") === id;
+          a.classList.toggle("active", on);
+          if (on && a.scrollIntoView) {
+            tabsEl.scrollTo({ left: a.offsetLeft - 16, behavior: "smooth" });
+          }
+        });
+      });
+    }, { rootMargin: "-130px 0px -65% 0px" });
+    document.querySelectorAll("#menu section").forEach(function (s) { io.observe(s); });
+  }
+
+  document.querySelectorAll(".langs button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      lang = b.getAttribute("data-lang");
+      try { localStorage.setItem("naveka-lang", lang); } catch (e) {}
+      render();
+    });
+  });
+  qEl.addEventListener("input", filter);
+
+  render();
+})();
+</script>
+</body>
+</html>
