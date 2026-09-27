@@ -65,6 +65,16 @@
     border-radius: 10px;
   }
   .tagline { margin: 12px 0 0; color: var(--muted); font-size: 14px; }
+  .insta {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
+    padding: 7px 14px; border-radius: 999px; text-decoration: none;
+    background: var(--chip); color: var(--ink); font-size: 14px; font-weight: 700;
+  }
+  .insta svg { color: var(--pink); }
+  .insta-link {
+    display: inline-block; margin-bottom: 8px;
+    color: var(--accent); font-size: 14px; font-weight: 700; text-decoration: none;
+  }
 
   /* ---------- sticky toolbar ---------- */
   .bar {
@@ -292,6 +302,7 @@
 <header class="hero">
   <img class="logo" src="logo.png" alt="Pizzeria Naveka" width="319" height="171">
   <p class="tagline" data-i18n="tagline"></p>
+  <a class="insta" href="https://www.instagram.com/pizzeria_naveka/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg><span>@pizzeria_naveka</span></a>
 </header>
 
 <div class="bar">
@@ -321,7 +332,10 @@
   </div>
 </main>
 
-<footer>Pizzeria Naveka · <span data-i18n="footer"></span></footer>
+<footer>
+  <a class="insta-link" href="https://www.instagram.com/pizzeria_naveka/" target="_blank" rel="noopener" data-i18n="insta"></a>
+  <div>Pizzeria Naveka · <span data-i18n="footer"></span></div>
+</footer>
 
 <button class="cart-bar hidden" id="cart-bar" type="button"><span id="cart-label"></span><span id="cart-sum"></span></button>
 <button class="to-top" id="to-top" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
@@ -366,7 +380,8 @@
       allergens: "Allergie o intolleranze? Chiedi al personale l'elenco degli allergeni.",
       empty: "Nessun piatto trovato.",
       base: "Da non considerarsi base per altre pizze",
-      footer: "Prezzi in euro, IVA inclusa"
+      footer: "Prezzi in euro, IVA inclusa",
+      insta: "Seguici su Instagram"
     },
     en: {
       myList: "My list", total: "Total", clear: "Clear", close: "Close",
@@ -382,7 +397,8 @@
       allergens: "Allergies or intolerances? Ask our staff for the allergen list.",
       empty: "No dishes found.",
       base: "Cannot be used as a base for other pizzas",
-      footer: "Prices in euro, VAT included"
+      footer: "Prices in euro, VAT included",
+      insta: "Follow us on Instagram"
     },
     de: {
       tagline: "Pizza am Meter · Fischküche",
@@ -397,6 +413,7 @@
       empty: "Kein Gericht gefunden.",
       base: "Nicht als Basis für andere Pizzen",
       footer: "Preise in Euro, inkl. MwSt.",
+      insta: "Folgen Sie uns auf Instagram",
       myList: "Meine Liste",
       total: "Summe",
       clear: "Leeren",
