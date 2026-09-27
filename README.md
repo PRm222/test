@@ -32,5 +32,5 @@ ve `qr.html` içindeki `url` değişkenini de aynı adresle güncelleyin.
 ## Notlar
 
 - Fiyatlar menü fotoğraflarından aktarıldı; yayına almadan önce bir kez kontrol edin.
-- Fotoğraflarda olmayan sayfalar (Şaraplar, Köpüklüler, Likörler, Kahve) henüz eklenmedi — `menu-data.js` içine aynı formatta yeni bir bölüm eklenerek tamamlanabilir.
+- Menüde 14 bölüm, 150 kalem var: pizzalar, antipasti, primi, secondi, contorni, formaggi, frutta, dolci, birre e bibite, vini, spumanti, liquori, caffè.
 - `*` işareti İtalya'daki standart kullanımla "dondurulmuş ürün" olarak açıklandı.

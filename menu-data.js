@@ -41,6 +41,23 @@ window.MENU = {
         { name: "Peperoni", desc: "pomodoro, mozzarella, peperoni", prices: [9, 36], tags: ["veg"] },
         { name: "Zucchine", desc: "pomodoro, mozzarella, zucchine grigliate", prices: [9, 36], tags: ["veg"] },
         { name: "Siciliana", desc: "pomodoro, mozzarella, melanzane, peperoncino", prices: [9, 36], tags: ["veg", "hot"] },
+        { name: "Diavola", desc: "pomodoro, mozzarella, salame piccante", prices: [9, 36], tags: ["hot"] },
+        { name: "Diavola con gorgonzola", desc: "pomodoro, mozzarella, salame piccante, gorgonzola", prices: [10.5, 42], tags: ["hot"] },
+        { name: "Prosciutto crudo", desc: "pomodoro, mozzarella, prosciutto crudo", prices: [10, 40] },
+        { name: "Romana", desc: "pomodoro, mozzarella, acciughe, olive, capperi, origano", prices: [10, 40], tags: ["sea"] },
+        { name: "Pox", desc: "pomodoro, mozzarella, acciughe, capperi, gorgonzola", prices: [11, 44], tags: ["sea"] },
+        { name: "Rucola e grana", desc: "pomodoro, mozzarella, rucola, grana", prices: [10, 40], tags: ["veg"] },
+        { name: "Tonno", desc: "pomodoro, mozzarella, tonno", prices: [11, 44], tags: ["sea"] },
+        { name: "4 formaggi", desc: "pomodoro, mozzarella, emmental, gorgonzola, grana grattugiato", prices: [11, 44], tags: ["veg"] },
+        { name: "Porcini", desc: "pomodoro, mozzarella, porcini", prices: [10.5, 42], tags: ["veg"] },
+        { name: "Prosciutto e carciofi", desc: "pomodoro, mozzarella, prosciutto cotto, carciofi", prices: [10, 40] },
+        { name: "Prosciutto e funghi", desc: "pomodoro, mozzarella, prosciutto cotto, funghi", prices: [10, 40] },
+        { name: "Prosciutto e zola", desc: "pomodoro, mozzarella, prosciutto cotto, gorgonzola", prices: [10, 40] },
+        { name: "Rucola e speck", desc: "pomodoro, mozzarella, rucola, speck", prices: [11, 44] },
+        { name: "Salsiccia", desc: "pomodoro, mozzarella, salsiccia", prices: [11, 44] },
+        { name: "Tonno e cipolle", desc: "pomodoro, mozzarella, tonno, cipolle", prices: [12, 48], tags: ["sea"] },
+        { name: "4 stagioni", desc: "pomodoro, mozzarella, prosciutto cotto, funghi, carciofi, olive, origano", prices: [11, 44] },
+        { name: "Capricciosa", desc: "pomodoro, mozzarella, funghi, prosciutto cotto, salame piccante", prices: [11, 44], tags: ["hot"] },
         { name: "Calzone", desc: "pomodoro, mozzarella, prosciutto cotto", prices: [10, 40] },
         { name: "Calzone farcito", desc: "pomodoro, mozzarella, prosciutto cotto, peperoni, funghi, carciofi, olive, origano", prices: [13, 52] },
         { name: "Patatine", desc: "pomodoro, mozzarella, patatine fritte*", prices: [11, 44], tags: ["veg"] },
@@ -51,7 +68,7 @@ window.MENU = {
         { name: "Speck e brie", desc: "pomodoro, mozzarella, speck, brie", prices: [11, 44] },
         { name: "Pancetta e brie", desc: "pomodoro, mozzarella, pancetta, brie", prices: [11, 44] },
         { name: "Vegetariana", desc: "pomodoro, mozzarella, peperoni, zucchine grigliate, melanzane", prices: [11, 44], tags: ["veg"] },
-        { name: "Naveka", desc: "pomodoro, mozzarella, peperoni, tonno, salame piccante", prices: [13, 52], tags: ["hot"], star: true },
+        { name: "Naveka", desc: "pomodoro, mozzarella, peperoni, tonno, salame piccante", prices: [13, 52], tags: ["hot", "sea"], star: true },
         { name: "Primavera", desc: "pomodoro, mozzarella, prosciutto cotto, porcini, pomodorini a fette", prices: [13, 52] },
         { name: "Gamberetti", desc: "pomodoro, mozzarella, gamberetti", prices: [12, 48], tags: ["sea"] },
         { name: "Rucola e gamberetti", desc: "pomodoro, mozzarella, gamberetti, rucola", prices: [13, 52], tags: ["sea"] },
@@ -119,6 +136,45 @@ window.MENU = {
     },
 
     {
+      id: "secondi",
+      title: { it: "Secondi piatti", en: "Main courses", de: "Hauptgerichte", tr: "Ana yemekler" },
+      items: [
+        { name: "Gamberoni alla griglia (6 pz.)*", tr: { en: "Grilled king prawns (6 pcs)", de: "Gegrillte Riesengarnelen (6 Stk.)", tr: "Izgara jumbo karides (6 adet)" }, price: 20, tags: ["sea"] },
+        { name: "Grigliata mista di pesci e crostacei*", tr: { en: "Mixed grill of fish and shellfish", de: "Grillplatte mit Fisch und Krustentieren", tr: "Karışık ızgara balık ve kabuklu deniz ürünleri" }, price: 35, tags: ["sea"] },
+        { name: "Trancio di pesce spada*", tr: { en: "Swordfish steak", de: "Schwertfischsteak", tr: "Kılıç balığı dilimi" }, price: 16, tags: ["sea"] },
+        { name: "Trancio di salmone*", tr: { en: "Salmon steak", de: "Lachssteak", tr: "Somon dilimi" }, price: 16, tags: ["sea"] },
+        { name: "Branzino 4/6 hg", tr: { en: "Sea bass (400–600 g)", de: "Wolfsbarsch (400–600 g)", tr: "Levrek (400–600 g)" }, price: 19, tags: ["sea"] },
+        { name: "Orata 4/6 hg", tr: { en: "Sea bream (400–600 g)", de: "Dorade (400–600 g)", tr: "Çipura (400–600 g)" }, price: 19, tags: ["sea"] },
+        { name: "Fritto misto*", tr: { en: "Mixed fried seafood", de: "Frittierte Meeresfrüchte", tr: "Karışık deniz ürünleri kızartması" }, price: 20, tags: ["sea"] },
+        { name: "Fritto di calamari*", tr: { en: "Fried squid", de: "Frittierte Calamari", tr: "Kalamar tava" }, price: 18, tags: ["sea"] },
+        { name: "Braciola di maiale", tr: { en: "Pork chop", de: "Schweinekotelett", tr: "Domuz pirzola" }, price: 10 },
+        { name: "Cotoletta alla milanese", tr: { en: "Milanese breaded cutlet", de: "Paniertes Kotelett nach Mailänder Art", tr: "Milano usulü pane pirzola" }, price: 13 },
+        { name: "Costata 4,5/5 hg", tr: { en: "Beef rib steak (450–500 g)", de: "Rinderkotelett (450–500 g)", tr: "Dana antrikot (450–500 g)" }, price: 20 },
+        { name: "Hamburger con patatine fritte", desc: "1 pezzo, 200 g", tr: { en: "Hamburger (200 g) with fries", de: "Hamburger (200 g) mit Pommes", tr: "Hamburger (200 g), patates kızartmalı" }, price: 15 }
+      ]
+    },
+
+    {
+      id: "contorni",
+      title: { it: "Contorni", en: "Side dishes", de: "Beilagen", tr: "Garnitürler" },
+      items: [
+        { name: "Insalata mista", tr: { en: "Mixed salad", de: "Gemischter Salat", tr: "Karışık salata" }, price: 5, tags: ["veg"] },
+        { name: "Insalata verde", tr: { en: "Green salad", de: "Grüner Salat", tr: "Yeşil salata" }, price: 4, tags: ["veg"] },
+        { name: "Verdure miste alla griglia", tr: { en: "Mixed grilled vegetables", de: "Gemischtes Grillgemüse", tr: "Karışık ızgara sebze" }, price: 7, tags: ["veg"] },
+        { name: "Patatine fritte*", tr: { en: "French fries", de: "Pommes frites", tr: "Patates kızartması" }, price: 5, tags: ["veg"] },
+        { name: "Crocchette di patate (6 pz.)*", tr: { en: "Potato croquettes (6 pcs)", de: "Kartoffelkroketten (6 Stk.)", tr: "Patates kroket (6 adet)" }, price: 5, tags: ["veg"] }
+      ]
+    },
+
+    {
+      id: "formaggi",
+      title: { it: "Formaggi", en: "Cheese", de: "Käse", tr: "Peynirler" },
+      items: [
+        { name: "Formaggi misti", tr: { en: "Mixed cheese platter", de: "Gemischte Käseplatte", tr: "Karışık peynir tabağı" }, price: 8, tags: ["veg"] }
+      ]
+    },
+
+    {
       id: "frutta",
       title: { it: "Frutta", en: "Fruit", de: "Obst", tr: "Meyve" },
       items: [
@@ -166,6 +222,59 @@ window.MENU = {
         { name: "Fanta lattina", tr: { en: "Fanta can", de: "Fanta Dose", tr: "Fanta kutu" }, price: 3 },
         { name: "Sprite lattina", tr: { en: "Sprite can", de: "Sprite Dose", tr: "Sprite kutu" }, price: 3 },
         { name: "Tè alla pesca / limone", tr: { en: "Peach / lemon iced tea", de: "Eistee Pfirsich / Zitrone", tr: "Şeftalili / limonlu soğuk çay" }, price: 3 }
+      ]
+    },
+
+    {
+      id: "vini",
+      title: { it: "Vini", en: "Wines", de: "Weine", tr: "Şaraplar" },
+      items: [
+        { name: "Bianco alla spina · ¼ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 4 },
+        { name: "Bianco alla spina · ½ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 7 },
+        { name: "Bianco alla spina · 1 l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 12 },
+        { name: "Müller Thurgau", desc: "Tenuta Cà Bolani", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 18 },
+        { name: "Riesling", desc: "Oltrepò Pavese", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 16 },
+        { name: "Bonarda / Barbera", desc: "Oltrepò Pavese", tr: { en: "Red wine", de: "Rotwein", tr: "Kırmızı şarap" }, price: 15 },
+        { name: "Pinot Grigio fermo e frizzante", desc: "Oltrepò Pavese", tr: { en: "White wine, still or sparkling", de: "Weißwein, still oder prickelnd", tr: "Beyaz şarap, köpüksüz veya köpüklü" }, price: 16 },
+        { name: "Croatina rosso fermo", desc: "Oltrepò Pavese", tr: { en: "Still red wine", de: "Roter Stillwein", tr: "Köpüksüz kırmızı şarap" }, price: 15 },
+        { name: "Prosecco", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine", de: "Weißer Schaumwein", tr: "Köpüklü beyaz şarap" }, price: 20 },
+        { name: "Prosecco extra dry", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine, extra dry", de: "Weißer Schaumwein, extra dry", tr: "Köpüklü beyaz şarap, extra dry" }, price: 20 },
+        { name: "Falanghina", desc: "Laguardiense", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 20 },
+        { name: "Greco", desc: "Laguardiense", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 20 }
+      ]
+    },
+
+    {
+      id: "spumanti",
+      title: { it: "Spumanti", en: "Sparkling wines", de: "Schaumweine", tr: "Köpüklü şaraplar" },
+      items: [
+        { name: "Spumanti nazionali", tr: { en: "Italian sparkling wines", de: "Italienische Schaumweine", tr: "İtalyan köpüklü şarapları" }, price: 20 }
+      ]
+    },
+
+    {
+      id: "liquori",
+      title: { it: "Liquori", en: "Spirits & liqueurs", de: "Spirituosen & Liköre", tr: "Likör ve sert içkiler" },
+      items: [
+        { name: "Whisky / Brandy / Cognac", price: 5 },
+        { name: "Jack Daniel's / Chivas Regal", price: 7.5 },
+        { name: "Grappe", tr: { en: "Grappa", de: "Grappa", tr: "Grappa (İtalyan üzüm brendisi)" }, price: 5 },
+        { name: "Grappa di Francoli", price: 7 },
+        { name: "Amari", tr: { en: "Italian herbal liqueurs", de: "Italienische Kräuterliköre", tr: "Bitkisel likörler (amaro)" }, price: 4 },
+        { name: "Amaro del Capo", price: 4 },
+        { name: "Limoncello / Liquirizia / Mirto", tr: { en: "Lemon / liquorice / myrtle liqueur", de: "Zitronen- / Lakritz- / Myrtenlikör", tr: "Limon / meyan kökü / mersin likörü" }, price: 4 },
+        { name: "Baileys", price: 5 },
+        { name: "Sorbetto", tr: { en: "Sorbet", de: "Sorbet", tr: "Sorbe" }, price: 6 }
+      ]
+    },
+
+    {
+      id: "caffe",
+      title: { it: "Caffè", en: "Coffee", de: "Kaffee", tr: "Kahve" },
+      items: [
+        { name: "Caffè", tr: { en: "Espresso", de: "Espresso", tr: "Espresso" }, price: 2 },
+        { name: "Caffè decaffeinato / Caffè d'orzo / Ginseng", tr: { en: "Decaf / barley coffee / ginseng coffee", de: "Entkoffeiniert / Gerstenkaffee / Ginseng-Kaffee", tr: "Kafeinsiz / arpa kahvesi / ginseng kahvesi" }, price: 2 },
+        { name: "Caffè corretto", tr: { en: "Espresso with a dash of liqueur", de: "Espresso mit Schuss", tr: "Likörlü espresso" }, price: 3 }
       ]
     }
   ]
