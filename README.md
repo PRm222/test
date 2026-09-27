@@ -4,7 +4,7 @@ Naveka restoranı için mobil uyumlu dijital menü + masalara konacak QR kod kar
 
 | Dosya | Ne işe yarar |
 |---|---|
-| `index.html` | Müşterinin QR'ı okutunca gördüğü menü sayfası (İtalyanca, İngilizce, Almanca; arama, "Listem", karanlık mod) |
+| `index.html` | Müşterinin QR'ı okutunca gördüğü menü sayfası (İtalyanca, İngilizce, Almanca; arama, kategori sekmeleri, karanlık mod) |
 | `menu-data.js` | **Tüm yemekler ve fiyatlar burada.** Fiyat değiştirmek için sadece bu dosyayı düzenleyin. |
 | `qr.html` | A4 kâğıda 4 adet A6 masa kartı basmak için yazdırılabilir sayfa |
 | `qr-menu.svg` / `qr-menu.png` | QR kodun kendisi (baskı / sosyal medya için) |
@@ -28,10 +28,6 @@ ve `qr.html` içindeki `url` değişkenini de aynı adresle güncelleyin.
 ## Masa kartlarını basmak
 
 `https://prm222.github.io/test/qr.html` adresini açıp **Stampa / Yazdır** düğmesine basın (A4, kenar boşluğu yok). Kesik çizgilerden kesin.
-
-## "Listem" özelliği
-
-Müşteri bir yemeğe dokununca yemek kendi listesine eklenir; pizzalarda 25 cm / 1 m seçilir. Listede adetler, kişi sayısına göre masa ücreti (coperto) ve toplam görünür. Bu bir sipariş değildir, restorana hiçbir şey gönderilmez: liste sadece müşterinin telefonunda durur, garsona göstermek için bir hatırlatmadır ve 6 saat sonra kendiliğinden silinir.
 
 ## Notlar
 
