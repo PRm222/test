@@ -90,16 +90,25 @@
     border: 0; outline: 0; background: transparent; color: var(--ink);
     font: inherit; width: 100%; min-width: 0;
   }
-  .langs {
-    display: flex; background: var(--card); border: 1px solid var(--line);
-    border-radius: 999px; padding: 3px; flex: none;
+  .lang-pick {
+    position: relative; flex: none;
+    display: flex; align-items: center;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 999px; height: 40px; color: var(--ink);
   }
-  .langs button {
-    border: 0; background: transparent; color: var(--muted);
-    font: 800 12px/1 inherit; font-family: inherit;
-    padding: 0 8px; height: 32px; border-radius: 999px; cursor: pointer;
+  .lang-pick svg { position: absolute; left: 12px; pointer-events: none; opacity: .7; }
+  .lang-pick::after {
+    content: ""; position: absolute; right: 13px; top: 16px; pointer-events: none;
+    border: 5px solid transparent; border-top-color: currentColor; opacity: .6;
   }
-  .langs button[aria-pressed="true"] { background: var(--accent); color: var(--card); }
+  .lang-pick select {
+    -webkit-appearance: none; appearance: none;
+    border: 0; background: transparent; color: inherit; cursor: pointer;
+    height: 100%; padding: 0 30px 0 34px; border-radius: 999px;
+    font: 700 14px/1 inherit; font-family: inherit;
+  }
+  .lang-pick select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .lang-pick option { color: #221b2b; background: #fff; }
 
   .tabs {
     display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
@@ -294,7 +303,6 @@
 
   @media (max-width: 380px) {
     .prices .price { width: 68px; font-size: 15px; }
-    .langs button { padding: 0 6px; }
   }
 </style>
 </head>
@@ -311,11 +319,17 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" autocomplete="off" enterkeyhint="search">
     </label>
-    <div class="langs" role="group" aria-label="Lingua / Language">
-      <button data-lang="it">IT</button>
-      <button data-lang="en">EN</button>
-      <button data-lang="tr">TR</button>
-    </div>
+    <label class="lang-pick">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      <select id="lang" aria-label="Lingua / Language">
+        <option value="it">Italiano</option>
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="tr">Türkçe</option>
+      </select>
+    </label>
   </div>
   <nav class="tabs" id="tabs"></nav>
 </div>
@@ -418,60 +432,138 @@
       empty: "Yemek bulunamadı.",
       base: "Diğer pizzalara taban olarak kullanılamaz",
       footer: "Fiyatlar euro, KDV dahil"
+    },
+    fr: {
+      tagline: "Pizza au mètre · Cuisine de la mer",
+      search: "Rechercher un plat ou un ingrédient…",
+      coperto: "Couvert",
+      veg: "Végétarien",
+      hot: "Épicé",
+      sea: "Poisson",
+      star: "Spécialité maison",
+      frozen: "* Produit surgelé.",
+      allergens: "Allergies ou intolérances ? Demandez la liste des allergènes à notre personnel.",
+      empty: "Aucun plat trouvé.",
+      base: "Ne peut pas servir de base à d'autres pizzas",
+      footer: "Prix en euros, TVA incluse",
+      hint: "👆 Touchez un plat pour l'ajouter à votre liste.",
+      myList: "Ma liste",
+      total: "Total",
+      clear: "Vider",
+      close: "Fermer",
+      added: "Ajouté",
+      chooseSize: "Choisissez la taille :",
+      people: "personnes",
+      listEmpty: "Votre liste est vide. Touchez un plat pour l'ajouter.",
+      listNote: "Simple aide-mémoire : montrez cette liste au serveur au moment de commander.",
+      confirmClear: "Vider la liste ?",
+      toTop: "Haut de page"
+    },
+    de: {
+      tagline: "Pizza am Meter · Fischküche",
+      search: "Gericht oder Zutat suchen…",
+      coperto: "Gedeck",
+      veg: "Vegetarisch",
+      hot: "Scharf",
+      sea: "Fisch",
+      star: "Hausspezialität",
+      frozen: "* Tiefkühlprodukt.",
+      allergens: "Allergien oder Unverträglichkeiten? Fragen Sie unser Personal nach der Allergenliste.",
+      empty: "Kein Gericht gefunden.",
+      base: "Nicht als Basis für andere Pizzen",
+      footer: "Preise in Euro, inkl. MwSt.",
+      hint: "👆 Tippen Sie auf ein Gericht, um es zu Ihrer Liste hinzuzufügen.",
+      myList: "Meine Liste",
+      total: "Summe",
+      clear: "Leeren",
+      close: "Schließen",
+      added: "Hinzugefügt",
+      chooseSize: "Größe wählen:",
+      people: "Personen",
+      listEmpty: "Ihre Liste ist leer. Tippen Sie auf ein Gericht, um es hinzuzufügen.",
+      listNote: "Nur eine Gedächtnisstütze: Zeigen Sie diese Liste beim Bestellen dem Kellner.",
+      confirmClear: "Liste leeren?",
+      toTop: "Nach oben"
+    },
+    es: {
+      tagline: "Pizza al metro · Cocina de mar",
+      search: "Busca un plato o ingrediente…",
+      coperto: "Cubierto",
+      veg: "Vegetariano",
+      hot: "Picante",
+      sea: "Pescado",
+      star: "Especialidad de la casa",
+      frozen: "* Producto congelado.",
+      allergens: "¿Alergias o intolerancias? Pide al personal la lista de alérgenos.",
+      empty: "No se ha encontrado ningún plato.",
+      base: "No se puede usar como base para otras pizzas",
+      footer: "Precios en euros, IVA incluido",
+      hint: "👆 Toca un plato para añadirlo a tu lista.",
+      myList: "Mi lista",
+      total: "Total",
+      clear: "Vaciar",
+      close: "Cerrar",
+      added: "Añadido",
+      chooseSize: "Elige el tamaño:",
+      people: "personas",
+      listEmpty: "Tu lista está vacía. Toca un plato para añadirlo.",
+      listNote: "Solo un recordatorio: enseña esta lista al camarero cuando pidas.",
+      confirmClear: "¿Vaciar la lista?",
+      toTop: "Volver arriba"
     }
   };
 
   // Italian ingredient -> translations (used for the pizza toppings)
   var ING = {
-    "pomodoro": ["tomato", "domates"],
-    "mozzarella": ["mozzarella", "mozzarella"],
-    "basilico": ["basil", "fesleğen"],
-    "cipolle": ["onions", "soğan"],
-    "funghi": ["mushrooms", "mantar"],
-    "würstel": ["frankfurter", "sosis"],
-    "carciofi": ["artichokes", "enginar"],
-    "gorgonzola": ["gorgonzola", "gorgonzola peyniri"],
-    "acciughe": ["anchovies", "hamsi"],
-    "origano": ["oregano", "kekik"],
-    "aglio": ["garlic", "sarımsak"],
-    "prosciutto cotto": ["cooked ham", "pişmiş jambon"],
-    "prosciutto crudo": ["cured ham", "çiğ jambon (prosciutto)"],
-    "peperoni": ["bell peppers", "biber"],
-    "zucchine": ["courgettes", "kabak"],
-    "zucchine grigliate": ["grilled courgettes", "ızgara kabak"],
-    "melanzane": ["aubergines", "patlıcan"],
-    "peperoncino": ["chili", "acı biber"],
-    "olive": ["olives", "zeytin"],
-    "patatine": ["fries", "patates kızartması"],
-    "patatine fritte*": ["fries*", "patates kızartması*"],
-    "panna": ["cream", "krema"],
-    "speck": ["speck (smoked ham)", "speck (füme jambon)"],
-    "brie": ["brie", "brie peyniri"],
-    "pancetta": ["bacon", "pancetta (domuz pastırması)"],
-    "tonno": ["tuna", "ton balığı"],
-    "salame piccante": ["spicy salami", "acılı salam"],
-    "porcini": ["porcini mushrooms", "porçini mantarı"],
-    "pomodorini": ["cherry tomatoes", "çeri domates"],
-    "pomodorini a fette": ["sliced cherry tomatoes", "dilim çeri domates"],
-    "gamberetti": ["shrimps", "karides"],
-    "rucola": ["rocket", "roka"],
-    "grana": ["grana (parmesan)", "grana peyniri"],
-    "grana grattugiato": ["grated grana", "rendelenmiş grana"],
-    "bresaola": ["bresaola (air-dried beef)", "bresaola (kurutulmuş sığır eti)"],
-    "mozzarella di bufala": ["buffalo mozzarella", "manda mozzarellası"],
-    "lattuga": ["lettuce", "marul"],
-    "calamari": ["squid", "kalamar"],
-    "calamari fritti": ["fried squid", "kalamar tava"],
-    "polpo": ["octopus", "ahtapot"],
-    "seppie": ["cuttlefish", "mürekkep balığı"],
-    "prezzemolo": ["parsley", "maydanoz"],
-    "capperi": ["capers", "kapari"],
-    "emmental": ["emmental", "emmental peyniri"],
-    "salsiccia": ["Italian sausage", "İtalyan sucuğu (salsiccia)"],
-    "frutti di mare": ["seafood", "deniz ürünleri"],
-    "bianca / rossa": ["white / red (with tomato)", "beyaz / kırmızı (domatesli)"]
+    "pomodoro": ["tomato", "domates", "tomate", "Tomate", "tomate"],
+    "mozzarella": ["mozzarella", "mozzarella", "mozzarella", "Mozzarella", "mozzarella"],
+    "basilico": ["basil", "fesleğen", "basilic", "Basilikum", "albahaca"],
+    "cipolle": ["onions", "soğan", "oignons", "Zwiebeln", "cebolla"],
+    "funghi": ["mushrooms", "mantar", "champignons", "Pilze", "champiñones"],
+    "würstel": ["frankfurter", "sosis", "saucisse de Francfort", "Würstchen", "salchicha"],
+    "carciofi": ["artichokes", "enginar", "artichauts", "Artischocken", "alcachofas"],
+    "gorgonzola": ["gorgonzola", "gorgonzola peyniri", "gorgonzola", "Gorgonzola", "gorgonzola"],
+    "acciughe": ["anchovies", "hamsi", "anchois", "Sardellen", "anchoas"],
+    "origano": ["oregano", "kekik", "origan", "Oregano", "orégano"],
+    "aglio": ["garlic", "sarımsak", "ail", "Knoblauch", "ajo"],
+    "prosciutto cotto": ["cooked ham", "pişmiş jambon", "jambon cuit", "Kochschinken", "jamón cocido"],
+    "prosciutto crudo": ["cured ham", "çiğ jambon (prosciutto)", "jambon cru", "Rohschinken", "jamón curado"],
+    "peperoni": ["bell peppers", "biber", "poivrons", "Paprika", "pimientos"],
+    "zucchine": ["courgettes", "kabak", "courgettes", "Zucchini", "calabacín"],
+    "zucchine grigliate": ["grilled courgettes", "ızgara kabak", "courgettes grillées", "gegrillte Zucchini", "calabacín a la parrilla"],
+    "melanzane": ["aubergines", "patlıcan", "aubergines", "Auberginen", "berenjena"],
+    "peperoncino": ["chili", "acı biber", "piment", "Peperoncino", "guindilla"],
+    "olive": ["olives", "zeytin", "olives", "Oliven", "aceitunas"],
+    "patatine": ["fries", "patates kızartması", "frites", "Pommes", "patatas fritas"],
+    "patatine fritte*": ["fries*", "patates kızartması*", "frites*", "Pommes*", "patatas fritas*"],
+    "panna": ["cream", "krema", "crème", "Sahne", "nata"],
+    "speck": ["speck (smoked ham)", "speck (füme jambon)", "speck (jambon fumé)", "Speck", "speck (jamón ahumado)"],
+    "brie": ["brie", "brie peyniri", "brie", "Brie", "brie"],
+    "pancetta": ["bacon", "pancetta (domuz pastırması)", "lard", "Bauchspeck", "panceta"],
+    "tonno": ["tuna", "ton balığı", "thon", "Thunfisch", "atún"],
+    "salame piccante": ["spicy salami", "acılı salam", "salami piquant", "scharfe Salami", "salami picante"],
+    "porcini": ["porcini mushrooms", "porçini mantarı", "cèpes", "Steinpilze", "boletus"],
+    "pomodorini": ["cherry tomatoes", "çeri domates", "tomates cerises", "Kirschtomaten", "tomates cherry"],
+    "pomodorini a fette": ["sliced cherry tomatoes", "dilim çeri domates", "tomates cerises en tranches", "Kirschtomatenscheiben", "tomates cherry en rodajas"],
+    "gamberetti": ["shrimps", "karides", "crevettes", "Garnelen", "gambas"],
+    "rucola": ["rocket", "roka", "roquette", "Rucola", "rúcula"],
+    "grana": ["grana (parmesan)", "grana peyniri", "grana (parmesan)", "Grana", "grana (parmesano)"],
+    "grana grattugiato": ["grated grana", "rendelenmiş grana", "grana râpé", "geriebener Grana", "grana rallado"],
+    "bresaola": ["bresaola (air-dried beef)", "bresaola (kurutulmuş sığır eti)", "bresaola (bœuf séché)", "Bresaola (Rinderschinken)", "bresaola (cecina de ternera)"],
+    "mozzarella di bufala": ["buffalo mozzarella", "manda mozzarellası", "mozzarella de bufflonne", "Büffelmozzarella", "mozzarella de búfala"],
+    "lattuga": ["lettuce", "marul", "laitue", "Kopfsalat", "lechuga"],
+    "calamari": ["squid", "kalamar", "calamars", "Tintenfisch", "calamares"],
+    "calamari fritti": ["fried squid", "kalamar tava", "calamars frits", "frittierte Calamari", "calamares fritos"],
+    "polpo": ["octopus", "ahtapot", "poulpe", "Oktopus", "pulpo"],
+    "seppie": ["cuttlefish", "mürekkep balığı", "seiches", "Sepia", "sepia"],
+    "prezzemolo": ["parsley", "maydanoz", "persil", "Petersilie", "perejil"],
+    "capperi": ["capers", "kapari", "câpres", "Kapern", "alcaparras"],
+    "emmental": ["emmental", "emmental peyniri", "emmental", "Emmentaler", "emmental"],
+    "salsiccia": ["Italian sausage", "İtalyan sucuğu (salsiccia)", "saucisse italienne", "italienische Wurst", "salchicha italiana"],
+    "frutti di mare": ["seafood", "deniz ürünleri", "fruits de mer", "Meeresfrüchte", "marisco"],
+    "bianca / rossa": ["white / red (with tomato)", "beyaz / kırmızı (domatesli)", "blanche / rouge (à la tomate)", "weiß / rot (mit Tomate)", "blanca / roja (con tomate)"]
   };
-  var LIDX = { en: 0, tr: 1 };
+  var LIDX = { en: 0, tr: 1, fr: 2, de: 3, es: 4 };
   var ICON = { veg: "🌱", hot: "🌶️", sea: "🐟" };
 
   var data = window.MENU;
@@ -494,7 +586,7 @@
     var nav = (navigator.language || "it").slice(0, 2).toLowerCase();
     if (UI[q]) return q;
     if (UI[saved]) return saved;
-    // phones set to any other language (e.g. German, French) get English
+    // phones set to any other language get English
     return UI[nav] ? nav : "en";
   }
 
@@ -556,7 +648,7 @@
           if (it.tr && it.tr[lang]) sub = it.tr[lang];
           else sub = translateDesc(it.desc);
         }
-        var search = [it.name, it.desc, it.tr && it.tr.en, it.tr && it.tr.tr, translateDesc(it.desc)]
+        var search = [it.name, it.desc, it.tr && it.tr[lang], it.tr && it.tr.en, translateDesc(it.desc)]
           .join(" ").toLowerCase();
 
         html += '<div class="item" tabindex="0" role="button" data-key="' + esc(sec.id + "|" + it.name) +
@@ -593,9 +685,7 @@
     qEl.placeholder = t.search;
     document.getElementById("coperto-price").textContent = euro(data.coperto);
     document.documentElement.lang = lang;
-    document.querySelectorAll(".langs button").forEach(function (b) {
-      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
-    });
+    document.getElementById("lang").value = lang;
 
     document.getElementById("filters").innerHTML = ["veg", "hot", "sea"].map(function (tag) {
       return '<button type="button" data-tag="' + tag + '" aria-pressed="' + (active[tag] ? "true" : "false") + '">' +
@@ -830,12 +920,10 @@
   }, { passive: true });
   topBtn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
-  document.querySelectorAll(".langs button").forEach(function (b) {
-    b.addEventListener("click", function () {
-      lang = b.getAttribute("data-lang");
-      try { localStorage.setItem("naveka-lang", lang); } catch (e) {}
-      render();
-    });
+  document.getElementById("lang").addEventListener("change", function () {
+    lang = this.value;
+    try { localStorage.setItem("naveka-lang", lang); } catch (e) {}
+    render();
   });
   qEl.addEventListener("input", filter);
 

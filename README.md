@@ -4,7 +4,7 @@ Naveka restoranı için mobil uyumlu dijital menü + masalara konacak QR kod kar
 
 | Dosya | Ne işe yarar |
 |---|---|
-| `index.html` | Müşterinin QR'ı okutunca gördüğü menü sayfası (IT / EN / TR, arama, vejetaryen / acılı / deniz ürünü filtreleri, "Listem", karanlık mod) |
+| `index.html` | Müşterinin QR'ı okutunca gördüğü menü sayfası (İtalyanca, İngilizce, Almanca, Fransızca, İspanyolca, Türkçe; arama, vejetaryen / acılı / deniz ürünü filtreleri, "Listem", karanlık mod) |
 | `menu-data.js` | **Tüm yemekler ve fiyatlar burada.** Fiyat değiştirmek için sadece bu dosyayı düzenleyin. |
 | `qr.html` | A4 kâğıda 4 adet A6 masa kartı basmak için yazdırılabilir sayfa |
 | `qr-menu.svg` / `qr-menu.png` | QR kodun kendisi (baskı / sosyal medya için) |
