@@ -229,7 +229,6 @@
     <div class="langs" role="group" aria-label="Lingua / Language">
       <button data-lang="it">IT</button>
       <button data-lang="en">EN</button>
-      <button data-lang="de">DE</button>
       <button data-lang="tr">TR</button>
     </div>
   </div>
@@ -278,17 +277,6 @@
       base: "Cannot be used as a base for other pizzas",
       footer: "Prices in euro, VAT included"
     },
-    de: {
-      tagline: "Pizza am Meter · Fischküche",
-      search: "Gericht oder Zutat suchen…",
-      coperto: "Gedeck",
-      veg: "Vegetarisch", hot: "Scharf", sea: "Fisch", star: "Hausspezialität",
-      frozen: "* Tiefkühlprodukt.",
-      allergens: "Allergien oder Unverträglichkeiten? Fragen Sie unser Personal nach der Allergenliste.",
-      empty: "Kein Gericht gefunden.",
-      base: "Nicht als Basis für andere Pizzen",
-      footer: "Preise in Euro, inkl. MwSt."
-    },
     tr: {
       tagline: "Metre pizza · Deniz mutfağı",
       search: "Yemek veya malzeme ara…",
@@ -304,55 +292,55 @@
 
   // Italian ingredient -> translations (used for the pizza toppings)
   var ING = {
-    "pomodoro": ["tomato", "Tomate", "domates"],
-    "mozzarella": ["mozzarella", "Mozzarella", "mozzarella"],
-    "basilico": ["basil", "Basilikum", "fesleğen"],
-    "cipolle": ["onions", "Zwiebeln", "soğan"],
-    "funghi": ["mushrooms", "Pilze", "mantar"],
-    "würstel": ["frankfurter", "Würstchen", "sosis"],
-    "carciofi": ["artichokes", "Artischocken", "enginar"],
-    "gorgonzola": ["gorgonzola", "Gorgonzola", "gorgonzola peyniri"],
-    "acciughe": ["anchovies", "Sardellen", "hamsi"],
-    "origano": ["oregano", "Oregano", "kekik"],
-    "aglio": ["garlic", "Knoblauch", "sarımsak"],
-    "prosciutto cotto": ["cooked ham", "Kochschinken", "pişmiş jambon"],
-    "prosciutto crudo": ["cured ham", "Rohschinken", "çiğ jambon (prosciutto)"],
-    "peperoni": ["bell peppers", "Paprika", "biber"],
-    "zucchine": ["courgettes", "Zucchini", "kabak"],
-    "zucchine grigliate": ["grilled courgettes", "gegrillte Zucchini", "ızgara kabak"],
-    "melanzane": ["aubergines", "Auberginen", "patlıcan"],
-    "peperoncino": ["chili", "Peperoncino", "acı biber"],
-    "olive": ["olives", "Oliven", "zeytin"],
-    "patatine": ["fries", "Pommes", "patates kızartması"],
-    "patatine fritte*": ["fries*", "Pommes*", "patates kızartması*"],
-    "panna": ["cream", "Sahne", "krema"],
-    "speck": ["speck (smoked ham)", "Speck", "speck (füme jambon)"],
-    "brie": ["brie", "Brie", "brie peyniri"],
-    "pancetta": ["bacon", "Bauchspeck", "pancetta (domuz pastırması)"],
-    "tonno": ["tuna", "Thunfisch", "ton balığı"],
-    "salame piccante": ["spicy salami", "scharfe Salami", "acılı salam"],
-    "porcini": ["porcini mushrooms", "Steinpilze", "porçini mantarı"],
-    "pomodorini": ["cherry tomatoes", "Kirschtomaten", "çeri domates"],
-    "pomodorini a fette": ["sliced cherry tomatoes", "Kirschtomatenscheiben", "dilim çeri domates"],
-    "gamberetti": ["shrimps", "Garnelen", "karides"],
-    "rucola": ["rocket", "Rucola", "roka"],
-    "grana": ["grana (parmesan)", "Grana", "grana peyniri"],
-    "grana grattugiato": ["grated grana", "geriebener Grana", "rendelenmiş grana"],
-    "bresaola": ["bresaola (air-dried beef)", "Bresaola (Rinderschinken)", "bresaola (kurutulmuş sığır eti)"],
-    "mozzarella di bufala": ["buffalo mozzarella", "Büffelmozzarella", "manda mozzarellası"],
-    "lattuga": ["lettuce", "Kopfsalat", "marul"],
-    "calamari": ["squid", "Tintenfisch", "kalamar"],
-    "calamari fritti": ["fried squid", "frittierte Calamari", "kalamar tava"],
-    "polpo": ["octopus", "Oktopus", "ahtapot"],
-    "seppie": ["cuttlefish", "Sepia", "mürekkep balığı"],
-    "prezzemolo": ["parsley", "Petersilie", "maydanoz"],
-    "capperi": ["capers", "Kapern", "kapari"],
-    "emmental": ["emmental", "Emmentaler", "emmental peyniri"],
-    "salsiccia": ["Italian sausage", "italienische Wurst", "İtalyan sucuğu (salsiccia)"],
-    "frutti di mare": ["seafood", "Meeresfrüchte", "deniz ürünleri"],
-    "bianca / rossa": ["white / red (with tomato)", "weiß / rot (mit Tomate)", "beyaz / kırmızı (domatesli)"]
+    "pomodoro": ["tomato", "domates"],
+    "mozzarella": ["mozzarella", "mozzarella"],
+    "basilico": ["basil", "fesleğen"],
+    "cipolle": ["onions", "soğan"],
+    "funghi": ["mushrooms", "mantar"],
+    "würstel": ["frankfurter", "sosis"],
+    "carciofi": ["artichokes", "enginar"],
+    "gorgonzola": ["gorgonzola", "gorgonzola peyniri"],
+    "acciughe": ["anchovies", "hamsi"],
+    "origano": ["oregano", "kekik"],
+    "aglio": ["garlic", "sarımsak"],
+    "prosciutto cotto": ["cooked ham", "pişmiş jambon"],
+    "prosciutto crudo": ["cured ham", "çiğ jambon (prosciutto)"],
+    "peperoni": ["bell peppers", "biber"],
+    "zucchine": ["courgettes", "kabak"],
+    "zucchine grigliate": ["grilled courgettes", "ızgara kabak"],
+    "melanzane": ["aubergines", "patlıcan"],
+    "peperoncino": ["chili", "acı biber"],
+    "olive": ["olives", "zeytin"],
+    "patatine": ["fries", "patates kızartması"],
+    "patatine fritte*": ["fries*", "patates kızartması*"],
+    "panna": ["cream", "krema"],
+    "speck": ["speck (smoked ham)", "speck (füme jambon)"],
+    "brie": ["brie", "brie peyniri"],
+    "pancetta": ["bacon", "pancetta (domuz pastırması)"],
+    "tonno": ["tuna", "ton balığı"],
+    "salame piccante": ["spicy salami", "acılı salam"],
+    "porcini": ["porcini mushrooms", "porçini mantarı"],
+    "pomodorini": ["cherry tomatoes", "çeri domates"],
+    "pomodorini a fette": ["sliced cherry tomatoes", "dilim çeri domates"],
+    "gamberetti": ["shrimps", "karides"],
+    "rucola": ["rocket", "roka"],
+    "grana": ["grana (parmesan)", "grana peyniri"],
+    "grana grattugiato": ["grated grana", "rendelenmiş grana"],
+    "bresaola": ["bresaola (air-dried beef)", "bresaola (kurutulmuş sığır eti)"],
+    "mozzarella di bufala": ["buffalo mozzarella", "manda mozzarellası"],
+    "lattuga": ["lettuce", "marul"],
+    "calamari": ["squid", "kalamar"],
+    "calamari fritti": ["fried squid", "kalamar tava"],
+    "polpo": ["octopus", "ahtapot"],
+    "seppie": ["cuttlefish", "mürekkep balığı"],
+    "prezzemolo": ["parsley", "maydanoz"],
+    "capperi": ["capers", "kapari"],
+    "emmental": ["emmental", "emmental peyniri"],
+    "salsiccia": ["Italian sausage", "İtalyan sucuğu (salsiccia)"],
+    "frutti di mare": ["seafood", "deniz ürünleri"],
+    "bianca / rossa": ["white / red (with tomato)", "beyaz / kırmızı (domatesli)"]
   };
-  var LIDX = { en: 0, de: 1, tr: 2 };
+  var LIDX = { en: 0, tr: 1 };
   var ICON = { veg: "🌱", hot: "🌶️", sea: "🐟" };
 
   var data = window.MENU;
@@ -366,8 +354,10 @@
     try { saved = localStorage.getItem("naveka-lang"); } catch (e) {}
     var q = new URLSearchParams(location.search).get("lang");
     var nav = (navigator.language || "it").slice(0, 2).toLowerCase();
-    var l = q || saved || nav;
-    return UI[l] ? l : "it";
+    if (UI[q]) return q;
+    if (UI[saved]) return saved;
+    // phones set to any other language (e.g. German, French) get English
+    return UI[nav] ? nav : "en";
   }
 
   function euro(n) {

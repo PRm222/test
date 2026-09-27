@@ -6,7 +6,7 @@
  *
  *  name  : nome del piatto (italiano)
  *  desc  : ingredienti / descrizione (italiano)
- *  tr    : traduzioni del nome  { en, de, tr }
+ *  tr    : traduzioni del nome  { en, tr }
  *  price : prezzo in euro
  *  prices: [prezzo 25 cm, prezzo 1 metro]   (solo pizze)
  *  tags  : "veg" vegetariano, "hot" piccante, "sea" pesce
@@ -19,11 +19,10 @@ window.MENU = {
   sections: [
     {
       id: "pizze",
-      title: { it: "Pizze al metro", en: "Pizza by the metre", de: "Pizza am Meter", tr: "Metre pizza" },
+      title: { it: "Pizze al metro", en: "Pizza by the metre", tr: "Metre pizza" },
       note: {
         it: "Ogni pizza è disponibile da 25 cm oppure da 1 metro.",
         en: "Every pizza comes in 25 cm or 1 metre size.",
-        de: "Jede Pizza gibt es mit 25 cm oder 1 Meter.",
         tr: "Her pizza 25 cm veya 1 metre olarak sunulur."
       },
       sizes: ["25 cm", "1 m"],
@@ -89,192 +88,191 @@ window.MENU = {
       footer: {
         it: "Aggiunte: per altre aggiunte chiedere al personale.",
         en: "Extra toppings: please ask our staff.",
-        de: "Extra-Beläge: bitte fragen Sie unser Personal.",
         tr: "Ekstra malzeme için lütfen personele danışın."
       }
     },
 
     {
       id: "antipasti",
-      title: { it: "Antipasti", en: "Starters", de: "Vorspeisen", tr: "Başlangıçlar" },
+      title: { it: "Antipasti", en: "Starters", tr: "Başlangıçlar" },
       items: [
-        { name: "Insalata di rucola e gamberetti", tr: { en: "Rocket and shrimp salad", de: "Rucola-Garnelen-Salat", tr: "Roka ve karides salatası" }, price: 12, tags: ["sea"] },
-        { name: "Insalata di mare", tr: { en: "Seafood salad", de: "Meeresfrüchtesalat", tr: "Deniz ürünleri salatası" }, price: 18, tags: ["sea"] },
-        { name: "Cocktail di gamberi", tr: { en: "Prawn cocktail", de: "Krabbencocktail", tr: "Karides kokteyli" }, price: 12, tags: ["sea"] },
-        { name: "Pepata di cozze", tr: { en: "Peppered mussels", de: "Gepfefferte Miesmuscheln", tr: "Karabiberli midye" }, price: 12, tags: ["sea"] },
-        { name: "Cozze alla marinara", tr: { en: "Mussels marinara", de: "Miesmuscheln Marinara", tr: "Marinara soslu midye" }, price: 12, tags: ["sea"] },
-        { name: "Cozze alla siciliana", desc: "sugo pomodoro piccante", tr: { en: "Sicilian mussels (spicy tomato sauce)", de: "Miesmuscheln sizilianisch (scharfe Tomatensauce)", tr: "Sicilya usulü midye (acılı domates sosu)" }, price: 12, tags: ["sea", "hot"] },
-        { name: "Chele di granchio (5 pz.)", tr: { en: "Crab claws (5 pcs)", de: "Krebsscheren (5 Stk.)", tr: "Yengeç kıskacı (5 adet)" }, price: 10, tags: ["sea"] },
-        { name: "Arrosticini di pesce (6 pz.)", tr: { en: "Fish skewers (6 pcs)", de: "Fischspießchen (6 Stk.)", tr: "Balık şiş (6 adet)" }, price: 12, tags: ["sea"] },
-        { name: "Antipasto misto caldo", desc: "insalata di mare, arrosticino di calamari, 1 chela di granchio, 1 surimi, cocktail di gamberi, tonno affumicato", tr: { en: "Mixed warm starter", de: "Gemischte warme Vorspeise", tr: "Karışık sıcak başlangıç" }, price: 20, tags: ["sea"] },
-        { name: "Pesciolini", tr: { en: "Small fried fish", de: "Frittierte Fischchen", tr: "Küçük balık kızartması" }, price: 10, tags: ["sea"] },
-        { name: "Bresaola con rucola e grana", tr: { en: "Bresaola with rocket and parmesan", de: "Bresaola mit Rucola und Grana", tr: "Roka ve grana peynirli bresaola" }, price: 15 },
-        { name: "Carpaccio di salmone e tonno", tr: { en: "Salmon and tuna carpaccio", de: "Lachs- und Thunfischcarpaccio", tr: "Somon ve ton balığı carpaccio" }, price: 16, tags: ["sea"] },
-        { name: "Polpo con patate", tr: { en: "Octopus with potatoes", de: "Oktopus mit Kartoffeln", tr: "Patatesli ahtapot" }, price: 18, tags: ["sea"] }
+        { name: "Insalata di rucola e gamberetti", tr: { en: "Rocket and shrimp salad", tr: "Roka ve karides salatası" }, price: 12, tags: ["sea"] },
+        { name: "Insalata di mare", tr: { en: "Seafood salad", tr: "Deniz ürünleri salatası" }, price: 18, tags: ["sea"] },
+        { name: "Cocktail di gamberi", tr: { en: "Prawn cocktail", tr: "Karides kokteyli" }, price: 12, tags: ["sea"] },
+        { name: "Pepata di cozze", tr: { en: "Peppered mussels", tr: "Karabiberli midye" }, price: 12, tags: ["sea"] },
+        { name: "Cozze alla marinara", tr: { en: "Mussels marinara", tr: "Marinara soslu midye" }, price: 12, tags: ["sea"] },
+        { name: "Cozze alla siciliana", desc: "sugo pomodoro piccante", tr: { en: "Sicilian mussels (spicy tomato sauce)", tr: "Sicilya usulü midye (acılı domates sosu)" }, price: 12, tags: ["sea", "hot"] },
+        { name: "Chele di granchio (5 pz.)", tr: { en: "Crab claws (5 pcs)", tr: "Yengeç kıskacı (5 adet)" }, price: 10, tags: ["sea"] },
+        { name: "Arrosticini di pesce (6 pz.)", tr: { en: "Fish skewers (6 pcs)", tr: "Balık şiş (6 adet)" }, price: 12, tags: ["sea"] },
+        { name: "Antipasto misto caldo", desc: "insalata di mare, arrosticino di calamari, 1 chela di granchio, 1 surimi, cocktail di gamberi, tonno affumicato", tr: { en: "Mixed warm starter", tr: "Karışık sıcak başlangıç" }, price: 20, tags: ["sea"] },
+        { name: "Pesciolini", tr: { en: "Small fried fish", tr: "Küçük balık kızartması" }, price: 10, tags: ["sea"] },
+        { name: "Bresaola con rucola e grana", tr: { en: "Bresaola with rocket and parmesan", tr: "Roka ve grana peynirli bresaola" }, price: 15 },
+        { name: "Carpaccio di salmone e tonno", tr: { en: "Salmon and tuna carpaccio", tr: "Somon ve ton balığı carpaccio" }, price: 16, tags: ["sea"] },
+        { name: "Polpo con patate", tr: { en: "Octopus with potatoes", tr: "Patatesli ahtapot" }, price: 18, tags: ["sea"] }
       ]
     },
 
     {
       id: "primi-terra",
-      title: { it: "Primi piatti · Terra", en: "Pasta & risotto · Land", de: "Erste Gänge · Land", tr: "Ara sıcaklar · Kara" },
+      title: { it: "Primi piatti · Terra", en: "Pasta & risotto · Land", tr: "Ara sıcaklar · Kara" },
       items: [
-        { name: "Spaghetti all'arrabbiata", tr: { en: "Spaghetti arrabbiata (spicy tomato)", de: "Spaghetti all'arrabbiata (scharf)", tr: "Arrabbiata spagetti (acılı domates)" }, price: 10, tags: ["veg", "hot"] },
-        { name: "Risotto speck e porcini", desc: "min. 2 persone", tr: { en: "Speck and porcini risotto (min. 2 people)", de: "Risotto mit Speck und Steinpilzen (mind. 2 Pers.)", tr: "Speck ve porçini mantarlı risotto (min. 2 kişi)" }, price: 15 }
+        { name: "Spaghetti all'arrabbiata", tr: { en: "Spaghetti arrabbiata (spicy tomato)", tr: "Arrabbiata spagetti (acılı domates)" }, price: 10, tags: ["veg", "hot"] },
+        { name: "Risotto speck e porcini", desc: "min. 2 persone", tr: { en: "Speck and porcini risotto (min. 2 people)", tr: "Speck ve porçini mantarlı risotto (min. 2 kişi)" }, price: 15 }
       ]
     },
 
     {
       id: "primi-mare",
-      title: { it: "Primi piatti · Mare", en: "Pasta & risotto · Sea", de: "Erste Gänge · Meer", tr: "Ara sıcaklar · Deniz" },
+      title: { it: "Primi piatti · Mare", en: "Pasta & risotto · Sea", tr: "Ara sıcaklar · Deniz" },
       items: [
-        { name: "Spaghetti alle vongole", tr: { en: "Spaghetti with clams", de: "Spaghetti mit Venusmuscheln", tr: "Deniz tarağı soslu spagetti" }, price: 16, tags: ["sea"] },
-        { name: "Linguine agli scampi*", tr: { en: "Linguine with scampi", de: "Linguine mit Scampi", tr: "Kerevitli linguine" }, price: 16, tags: ["sea"] },
-        { name: "Linguine allo scoglio*", tr: { en: "Linguine with mixed seafood", de: "Linguine mit Meeresfrüchten", tr: "Deniz ürünlü linguine" }, price: 18, tags: ["sea"] },
-        { name: "Penne al pesce spada", tr: { en: "Penne with swordfish", de: "Penne mit Schwertfisch", tr: "Kılıç balıklı penne" }, price: 16, tags: ["sea"] },
-        { name: "Risotto ai frutti di mare", desc: "su prenotazione, min. 2 persone", tr: { en: "Seafood risotto (on request, min. 2 people)", de: "Meeresfrüchte-Risotto (auf Vorbestellung, mind. 2 Pers.)", tr: "Deniz ürünlü risotto (önceden sipariş, min. 2 kişi)" }, price: 18, tags: ["sea"] }
+        { name: "Spaghetti alle vongole", tr: { en: "Spaghetti with clams", tr: "Deniz tarağı soslu spagetti" }, price: 16, tags: ["sea"] },
+        { name: "Linguine agli scampi*", tr: { en: "Linguine with scampi", tr: "Kerevitli linguine" }, price: 16, tags: ["sea"] },
+        { name: "Linguine allo scoglio*", tr: { en: "Linguine with mixed seafood", tr: "Deniz ürünlü linguine" }, price: 18, tags: ["sea"] },
+        { name: "Penne al pesce spada", tr: { en: "Penne with swordfish", tr: "Kılıç balıklı penne" }, price: 16, tags: ["sea"] },
+        { name: "Risotto ai frutti di mare", desc: "su prenotazione, min. 2 persone", tr: { en: "Seafood risotto (on request, min. 2 people)", tr: "Deniz ürünlü risotto (önceden sipariş, min. 2 kişi)" }, price: 18, tags: ["sea"] }
       ]
     },
 
     {
       id: "secondi",
-      title: { it: "Secondi piatti", en: "Main courses", de: "Hauptgerichte", tr: "Ana yemekler" },
+      title: { it: "Secondi piatti", en: "Main courses", tr: "Ana yemekler" },
       items: [
-        { name: "Gamberoni alla griglia (6 pz.)*", tr: { en: "Grilled king prawns (6 pcs)", de: "Gegrillte Riesengarnelen (6 Stk.)", tr: "Izgara jumbo karides (6 adet)" }, price: 20, tags: ["sea"] },
-        { name: "Grigliata mista di pesci e crostacei*", tr: { en: "Mixed grill of fish and shellfish", de: "Grillplatte mit Fisch und Krustentieren", tr: "Karışık ızgara balık ve kabuklu deniz ürünleri" }, price: 35, tags: ["sea"] },
-        { name: "Trancio di pesce spada*", tr: { en: "Swordfish steak", de: "Schwertfischsteak", tr: "Kılıç balığı dilimi" }, price: 16, tags: ["sea"] },
-        { name: "Trancio di salmone*", tr: { en: "Salmon steak", de: "Lachssteak", tr: "Somon dilimi" }, price: 16, tags: ["sea"] },
-        { name: "Branzino 4/6 hg", tr: { en: "Sea bass (400–600 g)", de: "Wolfsbarsch (400–600 g)", tr: "Levrek (400–600 g)" }, price: 19, tags: ["sea"] },
-        { name: "Orata 4/6 hg", tr: { en: "Sea bream (400–600 g)", de: "Dorade (400–600 g)", tr: "Çipura (400–600 g)" }, price: 19, tags: ["sea"] },
-        { name: "Fritto misto*", tr: { en: "Mixed fried seafood", de: "Frittierte Meeresfrüchte", tr: "Karışık deniz ürünleri kızartması" }, price: 20, tags: ["sea"] },
-        { name: "Fritto di calamari*", tr: { en: "Fried squid", de: "Frittierte Calamari", tr: "Kalamar tava" }, price: 18, tags: ["sea"] },
-        { name: "Braciola di maiale", tr: { en: "Pork chop", de: "Schweinekotelett", tr: "Domuz pirzola" }, price: 10 },
-        { name: "Cotoletta alla milanese", tr: { en: "Milanese breaded cutlet", de: "Paniertes Kotelett nach Mailänder Art", tr: "Milano usulü pane pirzola" }, price: 13 },
-        { name: "Costata 4,5/5 hg", tr: { en: "Beef rib steak (450–500 g)", de: "Rinderkotelett (450–500 g)", tr: "Dana antrikot (450–500 g)" }, price: 20 },
-        { name: "Hamburger con patatine fritte", desc: "1 pezzo, 200 g", tr: { en: "Hamburger (200 g) with fries", de: "Hamburger (200 g) mit Pommes", tr: "Hamburger (200 g), patates kızartmalı" }, price: 15 }
+        { name: "Gamberoni alla griglia (6 pz.)*", tr: { en: "Grilled king prawns (6 pcs)", tr: "Izgara jumbo karides (6 adet)" }, price: 20, tags: ["sea"] },
+        { name: "Grigliata mista di pesci e crostacei*", tr: { en: "Mixed grill of fish and shellfish", tr: "Karışık ızgara balık ve kabuklu deniz ürünleri" }, price: 35, tags: ["sea"] },
+        { name: "Trancio di pesce spada*", tr: { en: "Swordfish steak", tr: "Kılıç balığı dilimi" }, price: 16, tags: ["sea"] },
+        { name: "Trancio di salmone*", tr: { en: "Salmon steak", tr: "Somon dilimi" }, price: 16, tags: ["sea"] },
+        { name: "Branzino 4/6 hg", tr: { en: "Sea bass (400–600 g)", tr: "Levrek (400–600 g)" }, price: 19, tags: ["sea"] },
+        { name: "Orata 4/6 hg", tr: { en: "Sea bream (400–600 g)", tr: "Çipura (400–600 g)" }, price: 19, tags: ["sea"] },
+        { name: "Fritto misto*", tr: { en: "Mixed fried seafood", tr: "Karışık deniz ürünleri kızartması" }, price: 20, tags: ["sea"] },
+        { name: "Fritto di calamari*", tr: { en: "Fried squid", tr: "Kalamar tava" }, price: 18, tags: ["sea"] },
+        { name: "Braciola di maiale", tr: { en: "Pork chop", tr: "Domuz pirzola" }, price: 10 },
+        { name: "Cotoletta alla milanese", tr: { en: "Milanese breaded cutlet", tr: "Milano usulü pane pirzola" }, price: 13 },
+        { name: "Costata 4,5/5 hg", tr: { en: "Beef rib steak (450–500 g)", tr: "Dana antrikot (450–500 g)" }, price: 20 },
+        { name: "Hamburger con patatine fritte", desc: "1 pezzo, 200 g", tr: { en: "Hamburger (200 g) with fries", tr: "Hamburger (200 g), patates kızartmalı" }, price: 15 }
       ]
     },
 
     {
       id: "contorni",
-      title: { it: "Contorni", en: "Side dishes", de: "Beilagen", tr: "Garnitürler" },
+      title: { it: "Contorni", en: "Side dishes", tr: "Garnitürler" },
       items: [
-        { name: "Insalata mista", tr: { en: "Mixed salad", de: "Gemischter Salat", tr: "Karışık salata" }, price: 5, tags: ["veg"] },
-        { name: "Insalata verde", tr: { en: "Green salad", de: "Grüner Salat", tr: "Yeşil salata" }, price: 4, tags: ["veg"] },
-        { name: "Verdure miste alla griglia", tr: { en: "Mixed grilled vegetables", de: "Gemischtes Grillgemüse", tr: "Karışık ızgara sebze" }, price: 7, tags: ["veg"] },
-        { name: "Patatine fritte*", tr: { en: "French fries", de: "Pommes frites", tr: "Patates kızartması" }, price: 5, tags: ["veg"] },
-        { name: "Crocchette di patate (6 pz.)*", tr: { en: "Potato croquettes (6 pcs)", de: "Kartoffelkroketten (6 Stk.)", tr: "Patates kroket (6 adet)" }, price: 5, tags: ["veg"] }
+        { name: "Insalata mista", tr: { en: "Mixed salad", tr: "Karışık salata" }, price: 5, tags: ["veg"] },
+        { name: "Insalata verde", tr: { en: "Green salad", tr: "Yeşil salata" }, price: 4, tags: ["veg"] },
+        { name: "Verdure miste alla griglia", tr: { en: "Mixed grilled vegetables", tr: "Karışık ızgara sebze" }, price: 7, tags: ["veg"] },
+        { name: "Patatine fritte*", tr: { en: "French fries", tr: "Patates kızartması" }, price: 5, tags: ["veg"] },
+        { name: "Crocchette di patate (6 pz.)*", tr: { en: "Potato croquettes (6 pcs)", tr: "Patates kroket (6 adet)" }, price: 5, tags: ["veg"] }
       ]
     },
 
     {
       id: "formaggi",
-      title: { it: "Formaggi", en: "Cheese", de: "Käse", tr: "Peynirler" },
+      title: { it: "Formaggi", en: "Cheese", tr: "Peynirler" },
       items: [
-        { name: "Formaggi misti", tr: { en: "Mixed cheese platter", de: "Gemischte Käseplatte", tr: "Karışık peynir tabağı" }, price: 8, tags: ["veg"] }
+        { name: "Formaggi misti", tr: { en: "Mixed cheese platter", tr: "Karışık peynir tabağı" }, price: 8, tags: ["veg"] }
       ]
     },
 
     {
       id: "frutta",
-      title: { it: "Frutta", en: "Fruit", de: "Obst", tr: "Meyve" },
+      title: { it: "Frutta", en: "Fruit", tr: "Meyve" },
       items: [
-        { name: "Frutta di stagione", tr: { en: "Seasonal fruit", de: "Obst der Saison", tr: "Mevsim meyveleri" }, price: 5, tags: ["veg"] },
-        { name: "Macedonia con gelato", tr: { en: "Fruit salad with ice cream", de: "Obstsalat mit Eis", tr: "Dondurmalı meyve salatası" }, price: 6, tags: ["veg"] },
-        { name: "Fragole", tr: { en: "Strawberries", de: "Erdbeeren", tr: "Çilek" }, price: 6, tags: ["veg"] },
-        { name: "Fragole con gelato / con panna", tr: { en: "Strawberries with ice cream / cream", de: "Erdbeeren mit Eis / Sahne", tr: "Dondurmalı / kremalı çilek" }, price: 7, tags: ["veg"] }
+        { name: "Frutta di stagione", tr: { en: "Seasonal fruit", tr: "Mevsim meyveleri" }, price: 5, tags: ["veg"] },
+        { name: "Macedonia con gelato", tr: { en: "Fruit salad with ice cream", tr: "Dondurmalı meyve salatası" }, price: 6, tags: ["veg"] },
+        { name: "Fragole", tr: { en: "Strawberries", tr: "Çilek" }, price: 6, tags: ["veg"] },
+        { name: "Fragole con gelato / con panna", tr: { en: "Strawberries with ice cream / cream", tr: "Dondurmalı / kremalı çilek" }, price: 7, tags: ["veg"] }
       ]
     },
 
     {
       id: "dolci",
-      title: { it: "Dolci", en: "Desserts", de: "Desserts", tr: "Tatlılar" },
+      title: { it: "Dolci", en: "Desserts", tr: "Tatlılar" },
       items: [
-        { name: "Tiramisù classico", tr: { en: "Classic tiramisù", de: "Klassisches Tiramisù", tr: "Klasik tiramisu" }, price: 5.5, tags: ["veg"] },
-        { name: "Tiramisù al pistacchio", tr: { en: "Pistachio tiramisù", de: "Pistazien-Tiramisù", tr: "Fıstıklı tiramisu" }, price: 6, tags: ["veg"] },
-        { name: "Tartufo bianco", tr: { en: "White tartufo (ice cream)", de: "Tartufo weiß (Eis)", tr: "Beyaz tartufo (dondurma)" }, price: 5, tags: ["veg"] },
-        { name: "Tartufo nero", tr: { en: "Dark tartufo (ice cream)", de: "Tartufo schwarz (Eis)", tr: "Siyah tartufo (dondurma)" }, price: 5, tags: ["veg"] },
-        { name: "Panna cotta", tr: { en: "Panna cotta", de: "Panna cotta", tr: "Panna cotta" }, price: 5, tags: ["veg"] },
-        { name: "Crema catalana", tr: { en: "Crema catalana", de: "Crema catalana", tr: "Krem katalan" }, price: 5, tags: ["veg"] },
-        { name: "Meringata", tr: { en: "Meringue ice-cream cake", de: "Baiser-Eistorte", tr: "Beze dondurmalı pasta" }, price: 5, tags: ["veg"] },
-        { name: "Profiteroles bianchi / neri", tr: { en: "Profiteroles white / dark", de: "Profiteroles weiß / dunkel", tr: "Profiterol beyaz / siyah" }, price: 5, tags: ["veg"] },
-        { name: "Gelati e semifreddi", tr: { en: "Ice creams and semifreddi", de: "Eis und Halbgefrorenes", tr: "Dondurma ve semifreddo" }, price: 5, tags: ["veg"] },
-        { name: "Affogato al caffè", tr: { en: "Ice cream with espresso", de: "Eis mit Espresso", tr: "Espressolu dondurma" }, price: 7, tags: ["veg"] },
-        { name: "Affogato al whisky / Grand Marnier", tr: { en: "Ice cream with whisky / Grand Marnier", de: "Eis mit Whisky / Grand Marnier", tr: "Viski / Grand Marnier'li dondurma" }, price: 8 }
+        { name: "Tiramisù classico", tr: { en: "Classic tiramisù", tr: "Klasik tiramisu" }, price: 5.5, tags: ["veg"] },
+        { name: "Tiramisù al pistacchio", tr: { en: "Pistachio tiramisù", tr: "Fıstıklı tiramisu" }, price: 6, tags: ["veg"] },
+        { name: "Tartufo bianco", tr: { en: "White tartufo (ice cream)", tr: "Beyaz tartufo (dondurma)" }, price: 5, tags: ["veg"] },
+        { name: "Tartufo nero", tr: { en: "Dark tartufo (ice cream)", tr: "Siyah tartufo (dondurma)" }, price: 5, tags: ["veg"] },
+        { name: "Panna cotta", tr: { en: "Panna cotta", tr: "Panna cotta" }, price: 5, tags: ["veg"] },
+        { name: "Crema catalana", tr: { en: "Crema catalana", tr: "Krem katalan" }, price: 5, tags: ["veg"] },
+        { name: "Meringata", tr: { en: "Meringue ice-cream cake", tr: "Beze dondurmalı pasta" }, price: 5, tags: ["veg"] },
+        { name: "Profiteroles bianchi / neri", tr: { en: "Profiteroles white / dark", tr: "Profiterol beyaz / siyah" }, price: 5, tags: ["veg"] },
+        { name: "Gelati e semifreddi", tr: { en: "Ice creams and semifreddi", tr: "Dondurma ve semifreddo" }, price: 5, tags: ["veg"] },
+        { name: "Affogato al caffè", tr: { en: "Ice cream with espresso", tr: "Espressolu dondurma" }, price: 7, tags: ["veg"] },
+        { name: "Affogato al whisky / Grand Marnier", tr: { en: "Ice cream with whisky / Grand Marnier", tr: "Viski / Grand Marnier'li dondurma" }, price: 8 }
       ]
     },
 
     {
       id: "bevande",
-      title: { it: "Birre e bibite", en: "Beers & soft drinks", de: "Biere & Getränke", tr: "Biralar ve içecekler" },
+      title: { it: "Birre e bibite", en: "Beers & soft drinks", tr: "Biralar ve içecekler" },
       items: [
-        { name: "Birra alla spina chiara · 30 cl", desc: "HB Traunstein Pils", tr: { en: "Draught lager · 30 cl", de: "Helles vom Fass · 0,3 l", tr: "Fıçı bira (açık) · 30 cl" }, price: 4 },
-        { name: "Birra alla spina chiara · 50 cl", desc: "HB Traunstein Pils", tr: { en: "Draught lager · 50 cl", de: "Helles vom Fass · 0,5 l", tr: "Fıçı bira (açık) · 50 cl" }, price: 6 },
-        { name: "Birra alla spina rossa · 30 cl", desc: "HB Maximilian Doppelbock", tr: { en: "Draught red beer · 30 cl", de: "Dunkles vom Fass · 0,3 l", tr: "Fıçı bira (kırmızı) · 30 cl" }, price: 4.5 },
-        { name: "Birra alla spina rossa · 50 cl", desc: "HB Maximilian Doppelbock", tr: { en: "Draught red beer · 50 cl", de: "Dunkles vom Fass · 0,5 l", tr: "Fıçı bira (kırmızı) · 50 cl" }, price: 7 },
-        { name: "Birra alla spina weiss · 30 cl", desc: "HB Hefe-Weizen", tr: { en: "Draught wheat beer · 30 cl", de: "Weißbier vom Fass · 0,3 l", tr: "Fıçı buğday birası · 30 cl" }, price: 4.5 },
-        { name: "Birra alla spina weiss · 50 cl", desc: "HB Hefe-Weizen", tr: { en: "Draught wheat beer · 50 cl", de: "Weißbier vom Fass · 0,5 l", tr: "Fıçı buğday birası · 50 cl" }, price: 7 },
-        { name: "Birre nazionali · 66 cl", desc: "Moretti, Peroni", tr: { en: "Italian beers · 66 cl", de: "Italienische Biere · 0,66 l", tr: "İtalyan biraları · 66 cl" }, price: 4 },
-        { name: "Birra in bottiglia · 33 cl", desc: "Beck's, Corona, Heineken", tr: { en: "Bottled beer · 33 cl", de: "Flaschenbier · 0,33 l", tr: "Şişe bira · 33 cl" }, price: 4 },
-        { name: "Birra analcolica · 33 cl", tr: { en: "Alcohol-free beer · 33 cl", de: "Alkoholfreies Bier · 0,33 l", tr: "Alkolsüz bira · 33 cl" }, price: 4.5 },
-        { name: "Acqua naturale / frizzante · 0,50 l", tr: { en: "Still / sparkling water · 0.5 l", de: "Wasser still / sprudelnd · 0,5 l", tr: "Su / maden suyu · 0,5 l" }, price: 2 },
-        { name: "Acqua naturale / frizzante · 1 l", tr: { en: "Still / sparkling water · 1 l", de: "Wasser still / sprudelnd · 1 l", tr: "Su / maden suyu · 1 l" }, price: 3 },
-        { name: "Coca-Cola lattina", tr: { en: "Coca-Cola can", de: "Coca-Cola Dose", tr: "Coca-Cola kutu" }, price: 3 },
-        { name: "Fanta lattina", tr: { en: "Fanta can", de: "Fanta Dose", tr: "Fanta kutu" }, price: 3 },
-        { name: "Sprite lattina", tr: { en: "Sprite can", de: "Sprite Dose", tr: "Sprite kutu" }, price: 3 },
-        { name: "Tè alla pesca / limone", tr: { en: "Peach / lemon iced tea", de: "Eistee Pfirsich / Zitrone", tr: "Şeftalili / limonlu soğuk çay" }, price: 3 }
+        { name: "Birra alla spina chiara · 30 cl", desc: "HB Traunstein Pils", tr: { en: "Draught lager · 30 cl", tr: "Fıçı bira (açık) · 30 cl" }, price: 4 },
+        { name: "Birra alla spina chiara · 50 cl", desc: "HB Traunstein Pils", tr: { en: "Draught lager · 50 cl", tr: "Fıçı bira (açık) · 50 cl" }, price: 6 },
+        { name: "Birra alla spina rossa · 30 cl", desc: "HB Maximilian Doppelbock", tr: { en: "Draught red beer · 30 cl", tr: "Fıçı bira (kırmızı) · 30 cl" }, price: 4.5 },
+        { name: "Birra alla spina rossa · 50 cl", desc: "HB Maximilian Doppelbock", tr: { en: "Draught red beer · 50 cl", tr: "Fıçı bira (kırmızı) · 50 cl" }, price: 7 },
+        { name: "Birra alla spina weiss · 30 cl", desc: "HB Hefe-Weizen", tr: { en: "Draught wheat beer · 30 cl", tr: "Fıçı buğday birası · 30 cl" }, price: 4.5 },
+        { name: "Birra alla spina weiss · 50 cl", desc: "HB Hefe-Weizen", tr: { en: "Draught wheat beer · 50 cl", tr: "Fıçı buğday birası · 50 cl" }, price: 7 },
+        { name: "Birre nazionali · 66 cl", desc: "Moretti, Peroni", tr: { en: "Italian beers · 66 cl", tr: "İtalyan biraları · 66 cl" }, price: 4 },
+        { name: "Birra in bottiglia · 33 cl", desc: "Beck's, Corona, Heineken", tr: { en: "Bottled beer · 33 cl", tr: "Şişe bira · 33 cl" }, price: 4 },
+        { name: "Birra analcolica · 33 cl", tr: { en: "Alcohol-free beer · 33 cl", tr: "Alkolsüz bira · 33 cl" }, price: 4.5 },
+        { name: "Acqua naturale / frizzante · 0,50 l", tr: { en: "Still / sparkling water · 0.5 l", tr: "Su / maden suyu · 0,5 l" }, price: 2 },
+        { name: "Acqua naturale / frizzante · 1 l", tr: { en: "Still / sparkling water · 1 l", tr: "Su / maden suyu · 1 l" }, price: 3 },
+        { name: "Coca-Cola lattina", tr: { en: "Coca-Cola can", tr: "Coca-Cola kutu" }, price: 3 },
+        { name: "Fanta lattina", tr: { en: "Fanta can", tr: "Fanta kutu" }, price: 3 },
+        { name: "Sprite lattina", tr: { en: "Sprite can", tr: "Sprite kutu" }, price: 3 },
+        { name: "Tè alla pesca / limone", tr: { en: "Peach / lemon iced tea", tr: "Şeftalili / limonlu soğuk çay" }, price: 3 }
       ]
     },
 
     {
       id: "vini",
-      title: { it: "Vini", en: "Wines", de: "Weine", tr: "Şaraplar" },
+      title: { it: "Vini", en: "Wines", tr: "Şaraplar" },
       items: [
-        { name: "Bianco alla spina · ¼ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 4 },
-        { name: "Bianco alla spina · ½ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 7 },
-        { name: "Bianco alla spina · 1 l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", de: "Offener Weißwein, prickelnd", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 12 },
-        { name: "Müller Thurgau", desc: "Tenuta Cà Bolani", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 18 },
-        { name: "Riesling", desc: "Oltrepò Pavese", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 16 },
-        { name: "Bonarda / Barbera", desc: "Oltrepò Pavese", tr: { en: "Red wine", de: "Rotwein", tr: "Kırmızı şarap" }, price: 15 },
-        { name: "Pinot Grigio fermo e frizzante", desc: "Oltrepò Pavese", tr: { en: "White wine, still or sparkling", de: "Weißwein, still oder prickelnd", tr: "Beyaz şarap, köpüksüz veya köpüklü" }, price: 16 },
-        { name: "Croatina rosso fermo", desc: "Oltrepò Pavese", tr: { en: "Still red wine", de: "Roter Stillwein", tr: "Köpüksüz kırmızı şarap" }, price: 15 },
-        { name: "Prosecco", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine", de: "Weißer Schaumwein", tr: "Köpüklü beyaz şarap" }, price: 20 },
-        { name: "Prosecco extra dry", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine, extra dry", de: "Weißer Schaumwein, extra dry", tr: "Köpüklü beyaz şarap, extra dry" }, price: 20 },
-        { name: "Falanghina", desc: "Laguardiense", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 20 },
-        { name: "Greco", desc: "Laguardiense", tr: { en: "White wine", de: "Weißwein", tr: "Beyaz şarap" }, price: 20 }
+        { name: "Bianco alla spina · ¼ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 4 },
+        { name: "Bianco alla spina · ½ l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 7 },
+        { name: "Bianco alla spina · 1 l", desc: "Cuordivigna Frizzante", tr: { en: "House white on tap, lightly sparkling", tr: "Fıçı beyaz şarap, hafif köpüklü" }, price: 12 },
+        { name: "Müller Thurgau", desc: "Tenuta Cà Bolani", tr: { en: "White wine", tr: "Beyaz şarap" }, price: 18 },
+        { name: "Riesling", desc: "Oltrepò Pavese", tr: { en: "White wine", tr: "Beyaz şarap" }, price: 16 },
+        { name: "Bonarda / Barbera", desc: "Oltrepò Pavese", tr: { en: "Red wine", tr: "Kırmızı şarap" }, price: 15 },
+        { name: "Pinot Grigio fermo e frizzante", desc: "Oltrepò Pavese", tr: { en: "White wine, still or sparkling", tr: "Beyaz şarap, köpüksüz veya köpüklü" }, price: 16 },
+        { name: "Croatina rosso fermo", desc: "Oltrepò Pavese", tr: { en: "Still red wine", tr: "Köpüksüz kırmızı şarap" }, price: 15 },
+        { name: "Prosecco", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine", tr: "Köpüklü beyaz şarap" }, price: 20 },
+        { name: "Prosecco extra dry", desc: "Tenuta del Roggio · Valdobbiadene", tr: { en: "Sparkling white wine, extra dry", tr: "Köpüklü beyaz şarap, extra dry" }, price: 20 },
+        { name: "Falanghina", desc: "Laguardiense", tr: { en: "White wine", tr: "Beyaz şarap" }, price: 20 },
+        { name: "Greco", desc: "Laguardiense", tr: { en: "White wine", tr: "Beyaz şarap" }, price: 20 }
       ]
     },
 
     {
       id: "spumanti",
-      title: { it: "Spumanti", en: "Sparkling wines", de: "Schaumweine", tr: "Köpüklü şaraplar" },
+      title: { it: "Spumanti", en: "Sparkling wines", tr: "Köpüklü şaraplar" },
       items: [
-        { name: "Spumanti nazionali", tr: { en: "Italian sparkling wines", de: "Italienische Schaumweine", tr: "İtalyan köpüklü şarapları" }, price: 20 }
+        { name: "Spumanti nazionali", tr: { en: "Italian sparkling wines", tr: "İtalyan köpüklü şarapları" }, price: 20 }
       ]
     },
 
     {
       id: "liquori",
-      title: { it: "Liquori", en: "Spirits & liqueurs", de: "Spirituosen & Liköre", tr: "Likör ve sert içkiler" },
+      title: { it: "Liquori", en: "Spirits & liqueurs", tr: "Likör ve sert içkiler" },
       items: [
         { name: "Whisky / Brandy / Cognac", price: 5 },
         { name: "Jack Daniel's / Chivas Regal", price: 7.5 },
-        { name: "Grappe", tr: { en: "Grappa", de: "Grappa", tr: "Grappa (İtalyan üzüm brendisi)" }, price: 5 },
+        { name: "Grappe", tr: { en: "Grappa", tr: "Grappa (İtalyan üzüm brendisi)" }, price: 5 },
         { name: "Grappa di Francoli", price: 7 },
-        { name: "Amari", tr: { en: "Italian herbal liqueurs", de: "Italienische Kräuterliköre", tr: "Bitkisel likörler (amaro)" }, price: 4 },
+        { name: "Amari", tr: { en: "Italian herbal liqueurs", tr: "Bitkisel likörler (amaro)" }, price: 4 },
         { name: "Amaro del Capo", price: 4 },
-        { name: "Limoncello / Liquirizia / Mirto", tr: { en: "Lemon / liquorice / myrtle liqueur", de: "Zitronen- / Lakritz- / Myrtenlikör", tr: "Limon / meyan kökü / mersin likörü" }, price: 4 },
+        { name: "Limoncello / Liquirizia / Mirto", tr: { en: "Lemon / liquorice / myrtle liqueur", tr: "Limon / meyan kökü / mersin likörü" }, price: 4 },
         { name: "Baileys", price: 5 },
-        { name: "Sorbetto", tr: { en: "Sorbet", de: "Sorbet", tr: "Sorbe" }, price: 6 }
+        { name: "Sorbetto", tr: { en: "Sorbet", tr: "Sorbe" }, price: 6 }
       ]
     },
 
     {
       id: "caffe",
-      title: { it: "Caffè", en: "Coffee", de: "Kaffee", tr: "Kahve" },
+      title: { it: "Caffè", en: "Coffee", tr: "Kahve" },
       items: [
-        { name: "Caffè", tr: { en: "Espresso", de: "Espresso", tr: "Espresso" }, price: 2 },
-        { name: "Caffè decaffeinato / Caffè d'orzo / Ginseng", tr: { en: "Decaf / barley coffee / ginseng coffee", de: "Entkoffeiniert / Gerstenkaffee / Ginseng-Kaffee", tr: "Kafeinsiz / arpa kahvesi / ginseng kahvesi" }, price: 2 },
-        { name: "Caffè corretto", tr: { en: "Espresso with a dash of liqueur", de: "Espresso mit Schuss", tr: "Likörlü espresso" }, price: 3 }
+        { name: "Caffè", tr: { en: "Espresso", tr: "Espresso" }, price: 2 },
+        { name: "Caffè decaffeinato / Caffè d'orzo / Ginseng", tr: { en: "Decaf / barley coffee / ginseng coffee", tr: "Kafeinsiz / arpa kahvesi / ginseng kahvesi" }, price: 2 },
+        { name: "Caffè corretto", tr: { en: "Espresso with a dash of liqueur", tr: "Likörlü espresso" }, price: 3 }
       ]
     }
   ]
