@@ -188,6 +188,107 @@
   }
   .hidden { display: none !important; }
 
+  /* ---------- hint + filters ---------- */
+  .pre { max-width: 760px; margin: 0 auto; padding: 14px 16px 0; }
+  .hint { margin: 0; font-size: 13.5px; color: var(--muted); }
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .filters button {
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+    border-radius: 999px; padding: 6px 12px; cursor: pointer;
+    font: 600 13.5px/1.2 inherit; font-family: inherit;
+  }
+  .filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--card); }
+
+  /* ---------- selectable items ---------- */
+  .item { cursor: pointer; transition: background .15s; -webkit-tap-highlight-color: transparent; }
+  .item:active { background: var(--chip); }
+  .item:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .item.sel { box-shadow: inset 4px 0 0 var(--accent); }
+  .qty {
+    background: var(--accent); color: var(--card);
+    font-size: 12px; font-weight: 800; border-radius: 999px; padding: 1px 8px;
+  }
+
+  /* ---------- floating list bar + back to top ---------- */
+  .cart-bar {
+    position: fixed; z-index: 20;
+    left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom));
+    max-width: 736px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    border: 0; border-radius: 16px; padding: 14px 18px; cursor: pointer;
+    background: var(--purple); color: #fff;
+    font: 800 16px/1.2 inherit; font-family: inherit;
+    box-shadow: 0 8px 24px rgba(40, 20, 60, .3);
+  }
+  body.has-cart footer { padding-bottom: 100px; }
+  .to-top {
+    position: fixed; z-index: 19; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom));
+    width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--card); color: var(--ink); border: 1px solid var(--line); box-shadow: var(--shadow);
+    opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .2s, transform .2s;
+  }
+  .to-top.show { opacity: 1; pointer-events: auto; transform: none; }
+  body.has-cart .to-top { bottom: calc(84px + env(safe-area-inset-bottom)); }
+
+  .toast {
+    position: fixed; z-index: 30; left: 50%; bottom: calc(92px + env(safe-area-inset-bottom));
+    transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
+    background: var(--ink); color: var(--bg);
+    padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 700;
+    max-width: calc(100% - 32px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    transition: opacity .2s, transform .2s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  /* ---------- bottom sheets ---------- */
+  dialog.sheet {
+    border: 0; padding: 0; margin: auto auto 0;
+    width: 100%; max-width: 560px; max-height: 88vh;
+    border-radius: 20px 20px 0 0; background: var(--card); color: var(--ink);
+    display: none; flex-direction: column;
+  }
+  dialog.sheet[open] { display: flex; }
+  dialog.sheet::backdrop { background: rgba(20, 10, 30, .45); }
+  .sheet-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 12px 6px 18px; }
+  .sheet-head h3 { margin: 0; font-size: 20px; font-weight: 800; }
+  .x { flex: none; border: 0; background: transparent; color: var(--muted); font-size: 28px; line-height: 1; width: 44px; height: 44px; cursor: pointer; }
+  .sheet-body { padding: 0 18px; overflow-y: auto; flex: 1; }
+  .line { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .line:first-child { border-top: 0; }
+  .line-name { flex: 1; min-width: 0; font-weight: 700; }
+  .line-name small { display: block; color: var(--muted); font-weight: 400; font-size: 13px; }
+  .step { display: flex; align-items: center; gap: 4px; flex: none; }
+  .step button {
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+    font: 800 18px/1 inherit; font-family: inherit;
+  }
+  .step span { min-width: 22px; text-align: center; font-weight: 800; }
+  .line-total { flex: none; width: 64px; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .list-empty { color: var(--muted); text-align: center; padding: 24px 0; }
+  .sheet-foot { padding: 12px 18px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
+  .total { display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+  .sheet-note { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+  .actions { display: flex; gap: 10px; }
+  .btn {
+    flex: 1; height: 46px; border-radius: 12px; cursor: pointer;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+    font: 800 15px/1 inherit; font-family: inherit;
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--card); }
+  .sizes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 18px calc(20px + env(safe-area-inset-bottom)); }
+  .size-btn {
+    border: 2px solid var(--line); background: var(--bg); color: var(--ink);
+    border-radius: 14px; padding: 16px 8px; cursor: pointer; font: inherit;
+  }
+  .size-btn b { display: block; font-size: 18px; }
+  .size-btn span { color: var(--accent); font-weight: 800; font-size: 17px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .toast, .to-top { transition: none; }
+  }
+
   footer {
     text-align: center; color: var(--muted); font-size: 12.5px;
     padding: 10px 16px 30px;
@@ -222,6 +323,11 @@
   <nav class="tabs" id="tabs"></nav>
 </div>
 
+<div class="pre">
+  <p class="hint" data-i18n="hint"></p>
+  <div class="filters" id="filters" role="group"></div>
+</div>
+
 <main id="menu"></main>
 <p class="empty" id="empty" data-i18n="empty"></p>
 
@@ -236,6 +342,29 @@
 
 <footer>Pizzeria Naveka · <span data-i18n="footer"></span></footer>
 
+<button class="cart-bar hidden" id="cart-bar" type="button"><span id="cart-label"></span><span id="cart-sum"></span></button>
+<button class="to-top" id="to-top" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m6 15 6-6 6 6"/></svg></button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="sheet" id="size-sheet">
+  <div class="sheet-head"><h3 id="size-title"></h3><button class="x" type="button" data-close>×</button></div>
+  <p class="sheet-note" style="padding:0 18px" data-i18n="chooseSize"></p>
+  <div class="sizes" id="size-options"></div>
+</dialog>
+
+<dialog class="sheet" id="list-sheet">
+  <div class="sheet-head"><h3 data-i18n="myList"></h3><button class="x" type="button" data-close>×</button></div>
+  <div class="sheet-body" id="list-body"></div>
+  <div class="sheet-foot">
+    <div class="total"><span data-i18n="total"></span><span id="list-total"></span></div>
+    <p class="sheet-note" data-i18n="listNote"></p>
+    <div class="actions">
+      <button class="btn" type="button" id="list-clear" data-i18n="clear"></button>
+      <button class="btn primary" type="button" data-close data-i18n="close"></button>
+    </div>
+  </div>
+</dialog>
+
 <script src="menu-data.js"></script>
 <script>
 (function () {
@@ -243,6 +372,12 @@
 
   var UI = {
     it: {
+      hint: "👆 Tocca un piatto per aggiungerlo alla tua lista.",
+      myList: "La mia lista", total: "Totale", clear: "Svuota", close: "Chiudi",
+      added: "Aggiunto", chooseSize: "Scegli la misura:", people: "persone",
+      listEmpty: "La lista è vuota. Tocca un piatto per aggiungerlo.",
+      listNote: "Solo un promemoria per te: mostra la lista al cameriere quando ordini.",
+      confirmClear: "Svuotare la lista?", toTop: "Torna su",
       tagline: "Pizza al metro · Cucina di mare",
       search: "Cerca un piatto o un ingrediente…",
       coperto: "Coperto",
@@ -254,6 +389,12 @@
       footer: "Prezzi in euro, IVA inclusa"
     },
     en: {
+      hint: "👆 Tap a dish to add it to your list.",
+      myList: "My list", total: "Total", clear: "Clear", close: "Close",
+      added: "Added", chooseSize: "Choose the size:", people: "people",
+      listEmpty: "Your list is empty. Tap a dish to add it.",
+      listNote: "Just a reminder for you: show this list to the waiter when you order.",
+      confirmClear: "Clear the list?", toTop: "Back to top",
       tagline: "Pizza by the metre · Seafood kitchen",
       search: "Search a dish or ingredient…",
       coperto: "Cover charge",
@@ -265,6 +406,12 @@
       footer: "Prices in euro, VAT included"
     },
     tr: {
+      hint: "👆 Listenize eklemek için bir yemeğe dokunun.",
+      myList: "Listem", total: "Toplam", clear: "Temizle", close: "Kapat",
+      added: "Eklendi", chooseSize: "Boyut seçin:", people: "kişi",
+      listEmpty: "Listeniz boş. Eklemek için bir yemeğe dokunun.",
+      listNote: "Sadece sizin için bir not: sipariş verirken bu listeyi garsona gösterin.",
+      confirmClear: "Liste temizlensin mi?", toTop: "Başa dön",
       tagline: "Metre pizza · Deniz mutfağı",
       search: "Yemek veya malzeme ara…",
       coperto: "Masa ücreti (coperto)",
@@ -335,6 +482,13 @@
   var tabsEl = document.getElementById("tabs");
   var qEl = document.getElementById("q");
   var lang = pickLang();
+  var active = {};           // diet filters: { veg: true, ... }
+
+  // every dish by "sectionId|name"
+  var DISH = {};
+  data.sections.forEach(function (sec) {
+    sec.items.forEach(function (it) { DISH[sec.id + "|" + it.name] = { sec: sec, it: it }; });
+  });
 
   function pickLang() {
     var saved = null;
@@ -402,12 +556,13 @@
           if (it.tr && it.tr[lang]) sub = it.tr[lang];
           else sub = translateDesc(it.desc);
         }
-        var search = [it.name, it.desc, it.tr && it.tr.en, it.tr && it.tr.de, it.tr && it.tr.tr, translateDesc(it.desc)]
+        var search = [it.name, it.desc, it.tr && it.tr.en, it.tr && it.tr.tr, translateDesc(it.desc)]
           .join(" ").toLowerCase();
 
-        html += '<div class="item" data-search="' + esc(search) + '">';
+        html += '<div class="item" tabindex="0" role="button" data-key="' + esc(sec.id + "|" + it.name) +
+                '" data-tags="' + (it.tags || []).join(" ") + '" data-search="' + esc(search) + '">';
         html += '<div class="item-main">';
-        html += '<div class="item-name">' + esc(it.name) + badges(it) + "</div>";
+        html += '<div class="item-name">' + esc(it.name) + badges(it) + '<span class="qty hidden"></span></div>';
         if (it.desc) html += '<div class="item-desc">' + esc(it.desc) + "</div>";
         if (sub) html += '<div class="item-tr">' + esc(sub) + "</div>";
         if (it.info === "base") html += '<div class="item-info">' + esc(t.base) + "</div>";
@@ -440,8 +595,15 @@
       b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
     });
 
+    document.getElementById("filters").innerHTML = ["veg", "hot", "sea"].map(function (tag) {
+      return '<button type="button" data-tag="' + tag + '" aria-pressed="' + (active[tag] ? "true" : "false") + '">' +
+             ICON[tag] + " " + t[tag] + "</button>";
+    }).join("");
+    document.getElementById("to-top").setAttribute("aria-label", t.toTop);
+
     filter();
     observe();
+    refreshList();
   }
 
   function filter() {
@@ -450,7 +612,9 @@
     document.querySelectorAll("#menu section").forEach(function (sec) {
       var shown = 0;
       sec.querySelectorAll(".item").forEach(function (it) {
-        var ok = !q || it.getAttribute("data-search").indexOf(q) !== -1;
+        var tags = it.getAttribute("data-tags").split(" ");
+        var ok = (!q || it.getAttribute("data-search").indexOf(q) !== -1) &&
+                 Object.keys(active).every(function (tag) { return !active[tag] || tags.indexOf(tag) !== -1; });
         it.classList.toggle("hidden", !ok);
         if (ok) shown++;
       });
@@ -482,6 +646,187 @@
     }, { rootMargin: "-130px 0px -65% 0px" });
     document.querySelectorAll("#menu section").forEach(function (s) { io.observe(s); });
   }
+
+  // ---------- my list ----------
+  // Kept only in this phone's browser, and forgotten after a few hours
+  // so the next visit starts with an empty list.
+  var LIST_KEY = "naveka-list", LIST_TTL = 6 * 3600 * 1000;
+  var list = loadList();
+
+  function loadList() {
+    try {
+      var s = JSON.parse(localStorage.getItem(LIST_KEY));
+      if (s && s.lines && Date.now() - s.ts < LIST_TTL) return { lines: s.lines, people: s.people || 1 };
+    } catch (e) {}
+    return { lines: {}, people: 1 };
+  }
+  function saveList() {
+    try { localStorage.setItem(LIST_KEY, JSON.stringify({ lines: list.lines, people: list.people, ts: Date.now() })); } catch (e) {}
+  }
+
+  // line key = "sectionId|name|sizeIndex" ("" when the dish has one price)
+  function lineInfo(key) {
+    var p = key.lastIndexOf("|");
+    var d = DISH[key.slice(0, p)], size = key.slice(p + 1);
+    if (!d) return null;
+    return {
+      name: d.it.name,
+      size: size === "" ? "" : d.sec.sizes[+size],
+      cents: Math.round((size === "" ? d.it.price : d.it.prices[+size]) * 100)
+    };
+  }
+
+  function change(key, delta) {
+    var n = (list.lines[key] || 0) + delta;
+    if (n > 0) list.lines[key] = n; else delete list.lines[key];
+    saveList();
+    refreshList();
+  }
+
+  function refreshList() {
+    var t = UI[lang], count = 0, cents = 0, perDish = {}, rows = "";
+    Object.keys(list.lines).forEach(function (key) {
+      var info = lineInfo(key), n = list.lines[key];
+      if (!info) { delete list.lines[key]; return; }
+      count += n; cents += n * info.cents;
+      var dk = key.slice(0, key.lastIndexOf("|"));
+      perDish[dk] = (perDish[dk] || 0) + n;
+      rows += '<div class="line"><div class="line-name">' + esc(info.name) +
+              (info.size ? "<small>" + info.size + " · " + euro(info.cents / 100) + "</small>" : "<small>" + euro(info.cents / 100) + "</small>") +
+              '</div><div class="step"><button type="button" data-key="' + esc(key) + '" data-d="-1" aria-label="−">−</button><span>' + n +
+              '</span><button type="button" data-key="' + esc(key) + '" data-d="1" aria-label="+">+</button></div>' +
+              '<div class="line-total">' + euro(n * info.cents / 100) + "</div></div>";
+    });
+
+    var cover = Math.round(data.coperto * 100) * list.people;
+    if (count) {
+      rows += '<div class="line"><div class="line-name">' + esc(t.coperto) + "<small>" + euro(data.coperto) + " × " + list.people + " " + t.people + "</small></div>" +
+              '<div class="step"><button type="button" data-people="-1" aria-label="−">−</button><span>' + list.people +
+              '</span><button type="button" data-people="1" aria-label="+">+</button></div>' +
+              '<div class="line-total">' + euro(cover / 100) + "</div></div>";
+    } else {
+      rows = '<p class="list-empty">' + esc(t.listEmpty) + "</p>";
+    }
+    document.getElementById("list-body").innerHTML = rows;
+    document.getElementById("list-total").textContent = data.currency + " " + euro((count ? cents + cover : 0) / 100);
+
+    var bar = document.getElementById("cart-bar");
+    bar.classList.toggle("hidden", !count);
+    document.body.classList.toggle("has-cart", !!count);
+    document.getElementById("cart-label").textContent = "🧾 " + t.myList + " (" + count + ")";
+    document.getElementById("cart-sum").textContent = data.currency + " " + euro((cents + cover) / 100);
+
+    menuEl.querySelectorAll(".item").forEach(function (el) {
+      var n = perDish[el.getAttribute("data-key")] || 0;
+      var pill = el.querySelector(".qty");
+      pill.textContent = "×" + n;
+      pill.classList.toggle("hidden", !n);
+      el.classList.toggle("sel", !!n);
+    });
+  }
+
+  var toastTimer;
+  function toast(msg) {
+    var el = document.getElementById("toast");
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.classList.remove("show"); }, 1600);
+  }
+
+  function add(dishKey, size) {
+    var d = DISH[dishKey];
+    change(dishKey + "|" + (size === undefined ? "" : size), 1);
+    toast("✓ " + UI[lang].added + ": " + d.it.name + (size === undefined ? "" : " · " + d.sec.sizes[size]));
+  }
+
+  function openDialog(dlg) {
+    if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+  }
+  function closeDialog(dlg) {
+    if (dlg.close) dlg.close(); else dlg.removeAttribute("open");
+  }
+
+  var sizeSheet = document.getElementById("size-sheet");
+  var listSheet = document.getElementById("list-sheet");
+
+  function pick(dishKey) {
+    var d = DISH[dishKey];
+    if (!d) return;
+    if (!d.it.prices) { add(dishKey); return; }
+    document.getElementById("size-title").textContent = d.it.name;
+    document.getElementById("size-options").innerHTML = d.it.prices.map(function (p, i) {
+      return '<button type="button" class="size-btn" data-size="' + i + '"><b>' + d.sec.sizes[i] + "</b><span>" +
+             data.currency + " " + euro(p) + "</span></button>";
+    }).join("");
+    sizeSheet.setAttribute("data-dish", dishKey);
+    openDialog(sizeSheet);
+  }
+
+  menuEl.addEventListener("click", function (e) {
+    var el = e.target.closest(".item");
+    if (el) pick(el.getAttribute("data-key"));
+  });
+  menuEl.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    var el = e.target.closest(".item");
+    if (!el) return;
+    e.preventDefault();
+    pick(el.getAttribute("data-key"));
+  });
+
+  document.getElementById("size-options").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-size]");
+    if (!b) return;
+    add(sizeSheet.getAttribute("data-dish"), +b.getAttribute("data-size"));
+    closeDialog(sizeSheet);
+  });
+
+  document.getElementById("list-body").addEventListener("click", function (e) {
+    var b = e.target.closest("button");
+    if (!b) return;
+    if (b.hasAttribute("data-people")) {
+      list.people = Math.max(1, list.people + +b.getAttribute("data-people"));
+      saveList();
+      refreshList();
+    } else {
+      change(b.getAttribute("data-key"), +b.getAttribute("data-d"));
+    }
+  });
+
+  document.getElementById("list-clear").addEventListener("click", function () {
+    if (!Object.keys(list.lines).length || confirm(UI[lang].confirmClear)) {
+      list = { lines: {}, people: 1 };
+      saveList();
+      refreshList();
+      closeDialog(listSheet);
+    }
+  });
+
+  document.getElementById("cart-bar").addEventListener("click", function () { openDialog(listSheet); });
+
+  [sizeSheet, listSheet].forEach(function (dlg) {
+    dlg.addEventListener("click", function (e) {
+      // close buttons, or a tap on the dimmed backdrop
+      if (e.target.closest("[data-close]") || e.target === dlg) closeDialog(dlg);
+    });
+  });
+
+  // ---------- filters + back to top ----------
+  document.getElementById("filters").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-tag]");
+    if (!b) return;
+    var tag = b.getAttribute("data-tag");
+    active[tag] = !active[tag];
+    b.setAttribute("aria-pressed", active[tag] ? "true" : "false");
+    filter();
+  });
+
+  var topBtn = document.getElementById("to-top");
+  window.addEventListener("scroll", function () {
+    topBtn.classList.toggle("show", window.scrollY > 900);
+  }, { passive: true });
+  topBtn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
   document.querySelectorAll(".langs button").forEach(function (b) {
     b.addEventListener("click", function () {
