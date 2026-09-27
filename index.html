@@ -128,12 +128,12 @@
   }
   .sec-note { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
   .sizes-head {
-    display: flex; justify-content: flex-end; gap: 0;
+    display: flex; justify-content: flex-end; gap: 10px;
     font-size: 12px; font-weight: 800; color: var(--muted);
     text-transform: uppercase; letter-spacing: .06em;
     padding: 0 14px 6px;
   }
-  .sizes-head span { width: 64px; text-align: right; }
+  .sizes-head span { width: 76px; text-align: right; }
 
   .list {
     background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
@@ -166,8 +166,9 @@
     flex: none; font-weight: 800; font-variant-numeric: tabular-nums;
     white-space: nowrap; text-align: right;
   }
-  .prices { display: flex; flex: none; }
-  .prices .price { width: 64px; }
+  .prices { display: flex; flex: none; gap: 10px; }
+  .cur { font-size: .85em; font-weight: 600; opacity: .7; }
+  .prices .price { width: 76px; }
   .prices .price.big { color: var(--accent); }
 
   .footer-note {
@@ -265,7 +266,7 @@
     font: 800 18px/1 inherit; font-family: inherit;
   }
   .step span { min-width: 22px; text-align: center; font-weight: 800; }
-  .line-total { flex: none; width: 64px; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .line-total { flex: none; width: 76px; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
   .list-empty { color: var(--muted); text-align: center; padding: 24px 0; }
   .sheet-foot { padding: 12px 18px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); }
   .total { display: flex; justify-content: space-between; font-size: 20px; font-weight: 800; margin-bottom: 6px; }
@@ -295,8 +296,8 @@
   }
 
   @media (max-width: 380px) {
-    .prices .price { width: 54px; }
-    .sizes-head span { width: 54px; }
+    .prices .price { width: 68px; font-size: 15px; }
+    .sizes-head span { width: 68px; }
     .langs button { padding: 0 6px; }
   }
 </style>
@@ -501,8 +502,14 @@
     return UI[nav] ? nav : "en";
   }
 
+  // "€ 5,00" – non-breaking space so the sign never wraps away from the number
   function euro(n) {
-    return n.toFixed(2).replace(".", ",");
+    return data.currency + "\u00a0" + n.toFixed(2).replace(".", ",");
+  }
+
+  // same as euro(), with a lighter € sign for the menu columns
+  function priceHtml(n) {
+    return '<span class="cur">' + data.currency + "</span>\u00a0" + n.toFixed(2).replace(".", ",");
   }
 
   function esc(s) {
@@ -569,10 +576,10 @@
         html += "</div>";
 
         if (it.prices) {
-          html += '<div class="prices"><span class="price">' + euro(it.prices[0]) +
-                  '</span><span class="price big">' + euro(it.prices[1]) + "</span></div>";
+          html += '<div class="prices"><span class="price">' + priceHtml(it.prices[0]) +
+                  '</span><span class="price big">' + priceHtml(it.prices[1]) + "</span></div>";
         } else {
-          html += '<div class="price">' + euro(it.price) + "</div>";
+          html += '<div class="price">' + priceHtml(it.price) + "</div>";
         }
         html += "</div>";
       });
@@ -589,7 +596,7 @@
       el.textContent = t[el.getAttribute("data-i18n")];
     });
     qEl.placeholder = t.search;
-    document.getElementById("coperto-price").textContent = data.currency + " " + euro(data.coperto);
+    document.getElementById("coperto-price").textContent = euro(data.coperto);
     document.documentElement.lang = lang;
     document.querySelectorAll(".langs button").forEach(function (b) {
       b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
@@ -708,13 +715,13 @@
       rows = '<p class="list-empty">' + esc(t.listEmpty) + "</p>";
     }
     document.getElementById("list-body").innerHTML = rows;
-    document.getElementById("list-total").textContent = data.currency + " " + euro((count ? cents + cover : 0) / 100);
+    document.getElementById("list-total").textContent = euro((count ? cents + cover : 0) / 100);
 
     var bar = document.getElementById("cart-bar");
     bar.classList.toggle("hidden", !count);
     document.body.classList.toggle("has-cart", !!count);
     document.getElementById("cart-label").textContent = "🧾 " + t.myList + " (" + count + ")";
-    document.getElementById("cart-sum").textContent = data.currency + " " + euro((cents + cover) / 100);
+    document.getElementById("cart-sum").textContent = euro((cents + cover) / 100);
 
     menuEl.querySelectorAll(".item").forEach(function (el) {
       var n = perDish[el.getAttribute("data-key")] || 0;
@@ -757,7 +764,7 @@
     document.getElementById("size-title").textContent = d.it.name;
     document.getElementById("size-options").innerHTML = d.it.prices.map(function (p, i) {
       return '<button type="button" class="size-btn" data-size="' + i + '"><b>' + d.sec.sizes[i] + "</b><span>" +
-             data.currency + " " + euro(p) + "</span></button>";
+             euro(p) + "</span></button>";
     }).join("");
     sizeSheet.setAttribute("data-dish", dishKey);
     openDialog(sizeSheet);
