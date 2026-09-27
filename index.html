@@ -127,13 +127,6 @@
     background: linear-gradient(var(--teal), var(--olive), var(--purple));
   }
   .sec-note { margin: 0 0 12px; color: var(--muted); font-size: 14px; }
-  .sizes-head {
-    display: flex; justify-content: flex-end; gap: 10px;
-    font-size: 12px; font-weight: 800; color: var(--muted);
-    text-transform: uppercase; letter-spacing: .06em;
-    padding: 0 14px 6px;
-  }
-  .sizes-head span { width: 76px; text-align: right; }
 
   .list {
     background: var(--card); border-radius: 14px; box-shadow: var(--shadow);
@@ -170,6 +163,10 @@
   .cur { font-size: .85em; font-weight: 600; opacity: .7; }
   .prices .price { width: 76px; }
   .prices .price.big { color: var(--accent); }
+  .prices .size {
+    display: block; margin-top: 1px;
+    font-size: 11.5px; font-weight: 600; color: var(--muted);
+  }
 
   .footer-note {
     margin: 10px 2px 0; font-size: 13.5px; color: var(--muted);
@@ -297,7 +294,6 @@
 
   @media (max-width: 380px) {
     .prices .price { width: 68px; font-size: 15px; }
-    .sizes-head span { width: 68px; }
     .langs button { padding: 0 6px; }
   }
 </style>
@@ -552,9 +548,6 @@
       html += '<section id="' + sec.id + '" data-sec="' + sec.id + '">';
       html += "<h2>" + esc(title) + "</h2>";
       if (sec.note) html += '<p class="sec-note">' + esc(sec.note[lang]) + "</p>";
-      if (sec.sizes) {
-        html += '<div class="sizes-head">' + sec.sizes.map(function (s) { return "<span>" + s + "</span>"; }).join("") + "</div>";
-      }
       html += '<div class="list">';
 
       sec.items.forEach(function (it) {
@@ -576,8 +569,10 @@
         html += "</div>";
 
         if (it.prices) {
+          // size label under each price, so it stays clear while scrolling
           html += '<div class="prices"><span class="price">' + priceHtml(it.prices[0]) +
-                  '</span><span class="price big">' + priceHtml(it.prices[1]) + "</span></div>";
+                  '<small class="size">' + sec.sizes[0] + '</small></span><span class="price big">' +
+                  priceHtml(it.prices[1]) + '<small class="size">' + sec.sizes[1] + "</small></span></div>";
         } else {
           html += '<div class="price">' + priceHtml(it.price) + "</div>";
         }
