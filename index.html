@@ -494,15 +494,11 @@
     sec.items.forEach(function (it) { DISH[sec.id + "|" + it.name] = { sec: sec, it: it }; });
   });
 
+  // The menu always opens in Italian; guests switch with the IT / EN / DE buttons.
+  // A link can still ask for another language, e.g. ?lang=en
   function pickLang() {
-    var saved = null;
-    try { saved = localStorage.getItem("naveka-lang"); } catch (e) {}
     var q = new URLSearchParams(location.search).get("lang");
-    var nav = (navigator.language || "it").slice(0, 2).toLowerCase();
-    if (UI[q]) return q;
-    if (UI[saved]) return saved;
-    // phones set to any other language get English
-    return UI[nav] ? nav : "en";
+    return UI[q] ? q : "it";
   }
 
   // "€ 5,00" – non-breaking space so the sign never wraps away from the number
@@ -825,7 +821,6 @@
   document.querySelectorAll(".langs button").forEach(function (b) {
     b.addEventListener("click", function () {
       lang = b.getAttribute("data-lang");
-      try { localStorage.setItem("naveka-lang", lang); } catch (e) {}
       render();
     });
   });
